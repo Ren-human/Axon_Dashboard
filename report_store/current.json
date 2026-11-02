@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "version": "1c6485cf9df84acf9e6d6b1cd64f5458",
+  "previous_version": null,
+  "submission_id": "0477399841c842fd88f5471f944bbda3",
+  "resident_id": null,
+  "params": {
+    "as_of": "2026-01-15",
+    "fiscal_year": 2025,
+    "capacity": 24,
+    "followup_anchor": "discharge",
+    "occupancy_start": "2025-01-01"
+  },
+  "source_csv": "C:\\Users\\yuren\\Documents\\AxonAssessment\\TaskA\\Dashboard_V2\\data\\harbourview_residents.csv",
+  "input_sha256": "cddf4084f61a8d3a575d30e573972e59253d7aca7ed4e7a62c0a0bc52cd1d0ce",
+  "db_sha256": "06d56eae21237d7ecabf3d3cba83f5f8d5b5acb0bbe200787424fdfea2843712",
+  "metrics_version": "1.0.1",
+  "metrics_sha256": "76099cd2276e4e06c5e75d881dac1cd742a4d1a904f8d95745bede28c0785e0b",
+  "report_as_of": "2025-12-31",
+  "created_at": "2026-11-02T04:56:21.417080+00:00"
+}

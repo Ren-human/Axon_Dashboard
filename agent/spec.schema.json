@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "oneOf": [
+    {"type":"object","additionalProperties":false,"required":["schema_version","intent","metric"],
+     "properties":{"schema_version":{"const":"2.0"},"intent":{"const":"navigate"},"metric":{"$ref":"#/$defs/metric"}}},
+    {"type":"object","additionalProperties":false,"required":["schema_version","intent","title","sections"],
+     "properties":{"schema_version":{"const":"2.0"},"intent":{"const":"report"},"title":{"type":"string","minLength":1,"maxLength":120},
+       "sections":{"type":"array","minItems":1,"maxItems":6,"uniqueItems":true,"items":{"$ref":"#/$defs/metric"}}}},
+    {"type":"object","additionalProperties":false,"required":["schema_version","intent","metric","view","filters","time_window","output"],
+     "properties":{"schema_version":{"const":"2.0"},"intent":{"enum":["chart","value"]},"metric":{"$ref":"#/$defs/metric"},
+       "view":{"enum":["event_counts","stages","stage_count","conversion","bounds","weighted_lower","breakdown","coverage","reported_relapse_share","cohort_statistics","flag_count"]},
+       "filters":{"type":"array","maxItems":3,"items":{"type":"object","additionalProperties":false,"required":["field","op","value"],
+         "properties":{"field":{"enum":["event","stage","month","horizon_months","cohort","severity","rule"]},"op":{"enum":["eq","in","between"]},
+           "value":{"oneOf":[{"type":"string","maxLength":100},{"type":"integer"},{"type":"array","minItems":1,"maxItems":12,"items":{"oneOf":[{"type":"string","maxLength":100},{"type":"integer"}]}}]}}}},
+       "time_window":{"type":"object","additionalProperties":false,"required":["mode"],"properties":{"mode":{"const":"report"}}},
+       "output":{"type":"object","additionalProperties":false,"required":["type"],"properties":{"type":{"enum":["scalar","table","chart"]},
+         "chart_type":{"enum":["line","bar","grouped_bar","funnel","table"]},"title":{"type":"string","maxLength":120},
+         "sort":{"enum":["source","ascending","descending"]},"force_new":{"type":"boolean"}}}}}
+  ],
+  "$defs":{"metric":{"enum":["monthly_activity","funnel","occupancy","outcomes","los","quality"]}}
+}

@@ -1,0 +1,11 @@
+{
+  "source_csv": null,
+  "version_root": "report_store",
+  "report": {
+    "as_of": null,
+    "fiscal_year": null,
+    "capacity": null,
+    "followup_anchor": "discharge",
+    "occupancy_start": null
+  }
+}

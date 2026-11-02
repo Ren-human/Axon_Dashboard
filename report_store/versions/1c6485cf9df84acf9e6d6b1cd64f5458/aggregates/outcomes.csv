@@ -1,0 +1,3 @@
+﻿horizon_months,anchor,cohort_n,outside_cohort,eligibility_unknown,not_due,due_n,engaged_in_recovery,relapse_reported,lost_to_follow_up,unknown,missing,due_but_marked_not_yet_due,unrecognized,known_outcome_n,unresolved_due_n,ascertainment_rate,recovery_fraction_all_due_lower,recovery_fraction_all_due_upper,relapse_fraction_all_due,ltfu_rate_all_due,unresolved_rate_all_due
+6,discharge,91,109,3,43,45,21,6,13,2,3,0,0,27,18,0.6,0.4666666666666667,0.8666666666666667,0.13333333333333333,0.28888888888888886,0.4
+12,discharge,91,109,3,80,8,1,2,5,0,0,0,0,3,5,0.375,0.125,0.75,0.25,0.625,0.625

@@ -1,0 +1,201 @@
+resident_id,referral_date,intake_date,admission_date,current_status,discharge_date,discharge_reason,entrance_fee,fee_waived,followup_6m,followup_12m,staff_note,bed_capacity
+HV-0001,7/5/2024,,,not_admitted,,,,,,,Phone disconnected. Closed referral.,24
+HV-0002,7/13/2024,7/18/2024,,not_admitted,,,1250,FALSE,,,Waitlisted. f/u call next wk,24
+HV-0003,7/17/2024,,,not_admitted,,,,,,,  Phone disconnected. Closed referral. ,24
+HV-0004,7/20/2024,7/24/2024,7/27/2024,discharged,10/16/2024,transfer,750,FALSE,relapse_reported,relapse_reported,transferred to higher level of care (detox),24
+HV-0005,7/21/2024,7/30/2024,8/3/2024,discharged,10/5/2024,administrative,0,TRUE,lost_to_follow_up,lost_to_follow_up,admin d/c - violence policy,24
+HV-0006,7/25/2024,8/2/2024,8/24/2024,discharged,9/10/2024,self_discharge,750,FALSE,relapse_reported,relapse_reported,left AMA,24
+HV-0007,8/2/2024,8/10/2024,8/22/2024,alumni,4/29/2025,completed,750,FALSE,engaged_in_recovery,not_yet_due,Alumni. Attended alumni dinner.,24
+HV-0008,8/5/2024,8/9/2024,,not_admitted,,,750,FALSE,,,Waitlisted. f/u call next wk,24
+HV-0009,8/7/2024,,8/15/2024,discharged,9/9/2024,other,1000,FALSE,engaged_in_recovery,lost_to_follow_up,Discharged - see paper file,24
+HV-0010,8/11/2024,,,not_admitted,,,,,,,Referred by drug tx court; client did not attend,24
+HV-0011,8/13/2024,9/10/2024,9/18/2024,discharged,9/26/2024,self_discharge,0,TRUE,lost_to_follow_up,lost_to_follow_up,"res left during the night, belongings left behind",24
+HV-0012,8/17/2024,8/21/2024,8/25/2024,alumni,3/31/2025,completed,500,FALSE,relapse_reported,not_yet_due,alumni - no contact since spring,24
+HV-0013,8/18/2024,,,not_admitted,,,,,,,Client declined assessment - wants outpatient instead,24
+HV-0014,8/18/2024,8/21/2024,8/25/2024,alumni,2/6/2025,completed,0,TRUE,engaged_in_recovery,not_yet_due,alumni - no contact since spring,24
+HV-0015,8/19/2024,8/27/2024,8/31/2024,alumni,12/16/2024,completed,750,FALSE,engaged_in_recovery,engaged_in_recovery,Alumni. Attended alumni dinner.,24
+HV-0016,8/19/2024,9/19/2024,,not_admitted,,,1250,FALSE,,,Did not show on admission day,24
+HV-0017,8/20/2024,,,not_admitted,,,,,,,No-show for intake appt. Left VM x2.,24
+HV-0018,8/21/2024,9/3/2024,9/8/2024,alumni,1/5/2025,completed,500,FALSE,,lost_to_follow_up,alumni - no contact since spring,24
+HV-0019,8/23/2024,8/28/2024,8/30/2024,discharged,1/13/2025,transfer,0,TRUE,unknown,unknown,Transferred to hospital for medical care.,24
+HV-0020,8/28/2024,,,not_admitted,,,,,,,"referral recvd from hospital SW, unable to reach client",24
+HV-0021,9/1/2024,,,not_admitted,,,,,,,Referred by drug tx court; client did not attend,24
+HV-0022,9/3/2024,9/20/2024,,not_admitted,,,1000,FALSE,,,,24
+HV-0023,9/8/2024,9/23/2024,10/13/2024,alumni,1/19/2025,completed,1000,FALSE,engaged_in_recovery,not_yet_due,Alumni. Attended alumni dinner.,24
+HV-0024,9/9/2024,10/1/2024,,not_admitted,,,1000,FALSE,,,Did not show on admission day,24
+HV-0025,9/10/2024,9/15/2024,9/17/2024,alumni,3/24/2025,completed,750,TRUE,engaged_in_recovery,not_yet_due,Graduated. Volunteers at house occasionally.,24
+HV-0026,9/15/2024,,,not_admitted,,,,,,,Phone disconnected. Closed referral.,24
+HV-0027,9/15/2024,9/21/2024,10/9/2024,alumni,4/15/2025,completed,1500,FALSE,engaged_in_recovery,not_yet_due,GRADUATED. VOLUNTEERS AT HOUSE OCCASIONALLY.,24
+HV-0028,9/22/2024,9/29/2024,10/1/2024,alumni,2/11/2025,completed,1000,FALSE,relapse_reported,not_yet_due,alumni - no contact since spring,24
+HV-0029,9/23/2024,9/26/2024,9/30/2024,alumni,5/1/2025,completed,500,FALSE,engaged_in_recovery,not_yet_due,Graduated. Volunteers at house occasionally.,24
+HV-0030,9/27/2024,10/15/2024,10/18/2024,alumni,3/30/2025,completed,1000,FALSE,lost_to_follow_up,not_yet_due,Graduated. Volunteers at house occasionally.,24
+HV-0031,9/27/2024,9/30/2024,10/7/2024,discharged,,other,1500,FALSE,unknown,not_yet_due,Incarcerated - outstanding warrant,24
+HV-0032,9/29/2024,,,not_admitted,,,,,,,Client declined assessment - wants outpatient instead,24
+HV-0033,9/30/2024,,,not_admitted,,,,,,,Referred by drug tx court; client did not attend,24
+HV-0034,9/30/2024,10/5/2024,10/21/2024,discharged,11/28/2024,administrative,750,FALSE,lost_to_follow_up,lost_to_follow_up,DISCHARGED FOR REPEATED RULE VIOLATIONS (USE ON PREMISES).,24
+HV-0035,10/9/2024,10/15/2024,10/19/2024,alumni,5/29/2025,completed,500,FALSE,engaged_in_recovery,not_yet_due,Res. asked staff to update emerg contact to brother Kevin 905-555-0187.,24
+HV-0036,10/13/2024,10/15/2024,11/17/2024,alumni,2/27/2025,completed,1000,FALSE,unknown,not_yet_due,alumni - no contact since spring,24
+HV-0037,10/15/2024,,,not_admitted,,,,,,,Phone disconnected. Closed referral.,24
+HV-0038,10/18/2024,10/21/2024,10/29/2024,discharged,11/28/2024,administrative,1250,FALSE,lost_to_follow_up,lost_to_follow_up,admin d/c - violence policy,24
+HV-0039,10/19/2024,10/31/2024,11/4/2024,alumni,2/5/2025,completed,1250,FALSE,engaged_in_recovery,not_yet_due,Alumni. Attended alumni dinner.,24
+HV-0040,10/26/2024,11/1/2024,11/5/2024,discharged,1/15/2025,self_discharge,1250,FALSE,relapse_reported,lost_to_follow_up,left AMA,24
+HV-0041,11/2/2024,10/31/2024,11/17/2024,discharged,1/31/2025,administrative,750,FALSE,engaged_in_recovery,not_yet_due,N/A,24
+HV-0042,11/2/2024,12/22/2024,1/12/2025,alumni,5/7/2025,completed,750,FALSE,engaged_in_recovery,not_yet_due,Graduated. Volunteers at house occasionally.,24
+HV-0043,11/6/2024,11/14/2024,11/30/2024,alumni,5/26/2025,completed,1000,FALSE,engaged_in_recovery,not_yet_due,alumni - no contact since spring,24
+HV-0044,11/9/2024,11/22/2024,,not_admitted,,,1250,FALSE,,,"assessed - needs medical detox first, referred out",24
+HV-0045,11/9/2024,,,not_admitted,,,,,,,pending - intake not booked yet,24
+HV-0046,11/12/2024,,,not_admitted,,,,,,,,24
+HV-0047,11/29/2024,,,not_admitted,,,,,,,  Client declined assessment - wants outpatient instead ,24
+HV-0048,11/29/2024,12/5/2024,12/10/2024,discharged,3/18/2025,self_discharge,1250,FALSE,lost_to_follow_up,not_yet_due,Left AMA after conflict w/ peer.,24
+HV-0049,11/30/2024,12/6/2024,12/14/2024,alumni,3/5/2025,completed,0,TRUE,engaged_in_recovery,not_yet_due,Alumni. Attended alumni dinner.,24
+HV-0050,12/2/2024,12/25/2024,1/6/2025,alumni,6/2/2025,completed,750,FALSE,engaged_in_recovery,not_yet_due,Graduated. Volunteers at house occasionally.,24
+HV-0051,12/6/2024,12/12/2024,,not_admitted,,,1000,FALSE,,,"assessed - needs medical detox first, referred out",24
+HV-0052,12/9/2024,,,not_admitted,,,,,,,pending - intake not booked yet,24
+HV-0053,12/13/2024,12/29/2024,1/22/2025,discharged,3/25/2025,self_discharge,500,FALSE,lost_to_follow_up,not_yet_due,"res left during the night, belongings left behind",24
+HV-0054,12/14/2024,12/21/2024,1/3/2025,alumni,7/19/2025,completed,500,FALSE,not_yet_due,not_yet_due,  alumni - no contact since spring ,24
+HV-0055,12/19/2024,,,not_admitted,,,,,,,Phone disconnected. Closed referral.,24
+HV-0056,12/24/2024,1/9/2025,2/4/2025,alumni,5/2/2025,completed,0,TRUE,engaged_in_recovery,not_yet_due,alumni - no contact since spring,24
+HV-0057,12/26/2024,12/29/2024,,not_admitted,,,500,FALSE,,,Not appropriate for level of care at this time.,24
+HV-0058,12/29/2024,1/9/2025,,not_admitted,,,1000,FALSE,,,Did not show on admission day,24
+HV-0059,12/31/2024,,,not_admitted,,,,,,,Phone disconnected. Closed referral.,24
+HV-0060,1/3/2025,1/6/2025,1/14/2025,discharged,3/9/2025,self_discharge,0,TRUE,engaged_in_recovery,not_yet_due,"res left during the night, belongings left behind",24
+HV-0061,1/5/2025,1/14/2025,,not_admitted,,,500,FALSE,,,"Declined bed offer, prefers program closer to family.",24
+HV-0062,1/7/2025,,,not_admitted,,,,,,,pending - intake not booked yet,24
+HV-0063,1/11/2025,1/13/2025,,not_admitted,,,0,TRUE,,,Did not show on admission day,24
+HV-0064,1/15/2025,1/17/2025,1/25/2025,alumni,5/28/2025,completed,0,TRUE,engaged_in_recovery,not_yet_due,Graduated. Volunteers at house occasionally.,24
+HV-0065,1/16/2025,1/31/2025,,not_admitted,,,0,TRUE,,,Did not show on admission day,24
+HV-0066,1/18/2025,,,not_admitted,,,,,,,Client declined assessment - wants outpatient instead,24
+HV-0067,1/20/2025,1/24/2025,1/29/2025,aftercare,8/30/2025,,0,TRUE,not_yet_due,not_yet_due,"aftercare check-in by phone - doing well, employed",24
+HV-0068,1/20/2025,1/26/2025,1/29/2025,discharged,3/22/2025,transfer,1000,FALSE,lost_to_follow_up,not_yet_due,Moved to program in home region.,24
+HV-0069,1/26/2025,2/2/2025,,not_admitted,,,750,FALSE,,,Waitlisted. f/u call next wk,24
+HV-0070,1/29/2025,2/11/2025,3/26/2025,discharged,4/4/2025,self_discharge,1250,FALSE,lost_to_follow_up,not_yet_due,left AMA,24
+HV-0071,2/6/2025,2/11/2025,2/28/2025,discharged,3/25/2025,administrative,1000,FALSE,,not_yet_due,Discharged for repeated rule violations (use on premises).,24
+HV-0072,2/9/2025,,2/22/2025,discharged,,administrative,0,TRUE,lost_to_follow_up,not_yet_due,Spoke w/ probation officer J. Martel re: conditions.,24
+HV-0073,2/10/2025,,,not_admitted,,,,,,,  pending - intake not booked yet ,24
+HV-0074,2/10/2025,,,not_admitted,,,,,,,Client declined assessment - wants outpatient instead,24
+HV-0075,2/11/2025,2/21/2025,2/28/2025,aftercare,8/10/2025,completed,750,FALSE,not_yet_due,not_yet_due,"Completed. Moved to sober living, still attends alumni nite",24
+HV-0076,2/15/2025,2/19/2025,2/26/2025,alumni,7/7/2025,completed,750,FALSE,,not_yet_due,Graduated. Volunteers at house occasionally.,24
+HV-0077,2/23/2025,3/1/2025,3/23/2025,discharged,4/6/2025,self_discharge,1250,FALSE,lost_to_follow_up,not_yet_due,Left AMA after conflict w/ peer.,24
+HV-0078,2/24/2025,2/25/2025,3/17/2025,discharged,5/8/2025,transfer,0,TRUE,relapse_reported,not_yet_due,Moved to program in home region.,24
+HV-0079,2/24/2025,3/14/2025,3/26/2025,aftercare,8/18/2025,completed,500,FALSE,not_yet_due,not_yet_due,"Completed. Moved to sober living, still attends alumni nite",24
+HV-0080,2/25/2025,3/4/2025,,not_admitted,,,750,FALSE,,,N/A,24
+HV-0081,2/25/2025,2/27/2025,3/6/2025,discharged,7/1/2025,self_discharge,750,FALSE,relapse_reported,not_yet_due,Left AMA after conflict w/ peer.,24
+HV-0082,2/26/2025,3/7/2025,3/25/2025,discharged,4/6/2025,transfer,0,TRUE,engaged_in_recovery,not_yet_due,transferred to higher level of care (detox),24
+HV-0083,2/27/2025,3/4/2025,3/10/2025,discharged,4/26/2025,self_discharge,750,FALSE,,not_yet_due,"res left during the night, belongings left behind",24
+HV-0084,3/1/2025,3/10/2025,3/31/2025,alumni,6/28/2025,completed,1500,FALSE,engaged_in_recovery,not_yet_due,alumni - no contact since spring,24
+HV-0085,3/2/2025,3/8/2025,,not_admitted,,,500,FALSE,,,"on waitlist, will call when bed opens",24
+HV-0086,3/2/2025,3/8/2025,4/12/2025,aftercare,9/13/2025,completed,0,TRUE,not_yet_due,not_yet_due,Graduated program. Attending weekly aftercare group.,24
+HV-0087,3/5/2025,3/20/2025,4/1/2025,discharged,5/15/2025,self_discharge,750,FALSE,lost_to_follow_up,not_yet_due,Left AMA after conflict w/ peer.,24
+HV-0088,3/5/2025,3/7/2025,3/19/2025,aftercare,8/1/2025,completed,750,FALSE,not_yet_due,not_yet_due,N/A,24
+HV-0089,3/9/2025,3/24/2025,4/7/2025,discharged,5/6/2025,self_discharge,0,TRUE,lost_to_follow_up,not_yet_due,no change,24
+HV-0090,3/11/2025,3/22/2025,,not_admitted,,,0,TRUE,,,"Declined bed offer, prefers program closer to family.",24
+HV-0091,3/12/2025,3/15/2025,5/3/2025,discharged,8/6/2025,self_discharge,1250,FALSE,not_yet_due,not_yet_due,left AMA,24
+HV-0092,3/14/2025,,,not_admitted,,,,,,,see notes in file,24
+HV-0093,3/15/2025,,,not_admitted,,,,,,,pending - intake not booked yet,24
+HV-0094,3/16/2025,3/22/2025,,not_admitted,,,1000,FALSE,,,Waitlisted. f/u call next wk,24
+HV-0095,3/16/2025,,4/5/2025,aftercare,11/10/2025,completed,750,FALSE,not_yet_due,not_yet_due,Graduated program. Attending weekly aftercare group.,24
+HV-0096,3/19/2025,3/25/2025,4/7/2025,alumni,6/25/2025,completed,1000,FALSE,lost_to_follow_up,not_yet_due,Graduated. Volunteers at house occasionally.,24
+HV-0097,3/30/2025,4/1/2025,,not_admitted,,,1000,FALSE,,,"on waitlist, will call when bed opens",24
+HV-0098,3/31/2025,4/13/2025,4/16/2025,aftercare,8/18/2025,completed,0,TRUE,not_yet_due,not_yet_due,Graduated program. Attending weekly aftercare group.,24
+HV-0099,3/31/2025,,,not_admitted,,,,,,,Referred by drug tx court; client did not attend,24
+HV-0100,4/1/2025,,,not_admitted,,,,,,,pending - intake not booked yet,24
+HV-0101,4/2/2025,4/12/2025,4/30/2025,discharged,6/2/2025,self_discharge,0,TRUE,engaged_in_recovery,not_yet_due,left AMA,24
+HV-0102,4/4/2025,4/13/2025,4/27/2025,discharged,11/1/2025,administrative,0,TRUE,not_yet_due,not_yet_due,Discharged for repeated rule violations (use on premises).,24
+HV-0103,4/4/2025,4/8/2025,,not_admitted,,,1000,FALSE,,,"on waitlist, will call when bed opens",24
+HV-0104,4/8/2025,4/27/2025,5/27/2025,discharged,8/7/2025,,0,TRUE,not_yet_due,not_yet_due,Discharged for repeated rule violations (use on premises).,24
+HV-0105,4/16/2025,4/21/2025,5/2/2025,aftercare,7/28/2025,completed,750,FALSE,not_yet_due,not_yet_due,"aftercare check-in by phone - doing well, employed",24
+HV-0106,4/26/2025,5/1/2025,5/7/2025,aftercare,7/29/2025,completed,750,FALSE,not_yet_due,not_yet_due,"aftercare check-in by phone - doing well, employed",24
+HV-0107,4/27/2025,,,not_admitted,,,,,,,"referral recvd from hospital SW, unable to reach client",24
+HV-0108,4/30/2025,5/6/2025,5/11/2025,aftercare,8/24/2025,completed,1250,FALSE,not_yet_due,not_yet_due,"Completed. Moved to sober living, still attends alumni nite",24
+HV-0109,5/1/2025,5/12/2025,,not_admitted,,,1000,FALSE,,,Did not show on admission day,24
+HV-0110,5/2/2025,5/11/2025,,not_admitted,,,750,FALSE,,,Did not show on admission day,24
+HV-0111,5/2/2025,5/8/2025,5/11/2025,aftercare,8/29/2025,completed,0,TRUE,not_yet_due,not_yet_due,"Completed. Moved to sober living, still attends alumni nite",24
+HV-0112,5/4/2025,5/13/2025,5/29/2025,aftercare,12/9/2025,completed,1000,FALSE,not_yet_due,not_yet_due,Graduated program. Attending weekly aftercare group.,24
+HV-0113,5/6/2025,5/10/2025,5/30/2025,discharged,7/2/2025,self_discharge,750,FALSE,lost_to_follow_up,not_yet_due,N/A,24
+HV-0114,5/7/2025,,5/16/2025,discharged,8/8/2025,self_discharge,1000,FALSE,not_yet_due,not_yet_due,Self-discharged. Stated wanted to go home.,24
+HV-0115,5/7/2025,,,not_admitted,,,,,,,pending - intake not booked yet,24
+HV-0116,5/9/2025,,,not_admitted,,,,,,,Referred by drug tx court; client did not attend,24
+HV-0117,5/12/2025,5/15/2025,,not_admitted,,,500,FALSE,,,Not appropriate for level of care at this time.,24
+HV-0118,5/27/2025,,,not_admitted,,,,,,,Phone disconnected. Closed referral.,24
+HV-0119,5/30/2025,6/27/2025,6/30/2025,discharged,10/16/2025,self_discharge,1250,FALSE,not_yet_due,not_yet_due,Self-discharged. Stated wanted to go home.,24
+HV-0120,6/11/2025,,,not_admitted,,,,,,,"referral recvd from hospital SW, unable to reach client",24
+HV-0121,6/12/2025,7/7/2025,,not_admitted,,,750,FALSE,,,Waitlisted. f/u call next wk,24
+HV-0122,6/12/2025,6/14/2025,6/18/2025,discharged,8/19/2025,self_discharge,1250,FALSE,not_yet_due,not_yet_due,Self-discharged. Stated wanted to go home.,24
+HV-0123,6/14/2025,6/16/2025,6/20/2025,aftercare,10/18/2025,completed,750,TRUE,not_yet_due,not_yet_due,Graduated program. Attending weekly aftercare group.,24
+HV-0124,6/15/2025,,,not_admitted,,,,,,,"referral recvd from hospital SW, unable to reach client",24
+HV-0125,6/19/2025,,,not_admitted,,,,,,,pending - intake not booked yet,24
+HV-0126,6/25/2025,,,not_admitted,,,,,,,Referred by drug tx court; client did not attend,24
+HV-0127,6/25/2025,6/27/2025,6/30/2025,discharged,7/13/2025,self_discharge,750,FALSE,relapse_reported,not_yet_due,"res left during the night, belongings left behind",24
+HV-0128,6/29/2025,,,not_admitted,,,,,,,pending - intake not booked yet,24
+HV-0129,6/30/2025,,,not_admitted,,,,,,,Phone disconnected. Closed referral.,24
+HV-0130,7/1/2025,7/13/2025,7/17/2025,discharged,8/12/2025,self_discharge,0,TRUE,not_yet_due,not_yet_due,Left AMA after conflict w/ peer.,24
+HV-0131,7/2/2025,7/10/2025,7/19/2025,aftercare,11/26/2025,completed,0,TRUE,not_yet_due,not_yet_due,"Completed. Moved to sober living, still attends alumni nite",24
+HV-0132,7/3/2025,7/6/2025,,not_admitted,,,500,FALSE,,,"assessed - needs medical detox first, referred out",24
+HV-0133,7/8/2025,8/19/2025,8/20/2025,aftercare,1/3/2026,completed,0,TRUE,not_yet_due,not_yet_due,"Completed. Moved to sober living, still attends alumni nite",24
+HV-0134,7/10/2025,,,not_admitted,,,,,,,Referred by drug tx court; client did not attend,24
+HV-0135,7/10/2025,7/21/2025,7/23/2025,phase_3,,,750,FALSE,,,Discussed aftercare plan w/ case mgr,24
+HV-0136,7/11/2025,7/17/2025,7/27/2025,discharged,,other,500,FALSE,not_yet_due,not_yet_due,Incarcerated - outstanding warrant,24
+HV-0137,7/12/2025,7/20/2025,,not_admitted,,,0,TRUE,,,"assessed - needs medical detox first, referred out",24
+HV-0138,7/18/2025,7/24/2025,7/26/2025,aftercare,1/10/2026,completed,0,TRUE,not_yet_due,not_yet_due,"aftercare check-in by phone - doing well, employed",24
+HV-0139,7/18/2025,7/26/2025,7/31/2025,discharged,9/18/2025,other,0,TRUE,not_yet_due,not_yet_due,Discharged - see paper file,24
+HV-0140,7/18/2025,7/24/2025,,not_admitted,,,0,TRUE,,,Did not show on admission day,24
+HV-0141,7/20/2025,7/22/2025,,not_admitted,,,0,TRUE,,,Did not show on admission day,24
+HV-0142,7/20/2025,7/21/2025,7/29/2025,aftercare,11/1/2025,completed,750,FALSE,not_yet_due,not_yet_due,missed last 2 aftercare sessions,24
+HV-0143,7/23/2025,8/1/2025,,not_admitted,,,1000,FALSE,,,Waitlisted. f/u call next wk,24
+HV-0144,7/29/2025,8/7/2025,,not_admitted,,,750,FALSE,,,Waitlisted. f/u call next wk,24
+HV-0145,7/29/2025,,,not_admitted,,,,,,,Referred by drug tx court; client did not attend,24
+HV-0146,8/1/2025,8/12/2025,,not_admitted,,,0,TRUE,,,n/a,24
+HV-0147,8/8/2025,8/13/2025,8/24/2025,aftercare,12/30/2025,completed,500,FALSE,not_yet_due,not_yet_due,"Completed. Moved to sober living, still attends alumni nite",24
+HV-0148,8/13/2025,,,not_admitted,,,,,,,Client declined assessment - wants outpatient instead,24
+HV-0149,8/13/2025,8/9/2025,8/20/2025,aftercare,12/12/2025,completed,500,FALSE,not_yet_due,not_yet_due,Sister Priya dropped off clothes; res in good spirits.,24
+HV-0150,8/21/2025,,8/30/2025,aftercare,1/15/2026,completed,1000,FALSE,not_yet_due,not_yet_due,"Completed. Moved to sober living, still attends alumni nite",24
+HV-0151,8/22/2025,8/29/2025,9/1/2025,phase_3,,,500,FALSE,,,,24
+HV-0152,8/22/2025,9/2/2025,9/13/2025,discharged,10/28/2025,transfer,0,TRUE,not_yet_due,not_yet_due,transferred to higher level of care (detox),24
+HV-0153,8/24/2025,8/27/2025,9/6/2025,discharged,10/5/2025,administrative,0,TRUE,not_yet_due,not_yet_due,Discharged: positive UA x2 and refused to engage w/ plan,24
+HV-0154,8/26/2025,9/10/2025,9/12/2025,discharged,12/18/2025,self_discharge,1250,FALSE,not_yet_due,not_yet_due,Left AMA after conflict w/ peer.,24
+HV-0155,8/28/2025,,9/11/2025,discharged,10/17/2025,self_discharge,1000,FALSE,not_yet_due,not_yet_due,"res left during the night, belongings left behind",24
+HV-0156,8/29/2025,9/4/2025,,not_admitted,,,1500,FALSE,,,Did not show on admission day,24
+HV-0157,9/1/2025,9/13/2025,9/15/2025,discharged,11/25/2025,self_discharge,500,FALSE,not_yet_due,not_yet_due,left AMA,24
+HV-0158,9/2/2025,9/5/2025,,not_admitted,,,750,FALSE,,,"Mom (Linda) called asking about visiting hrs, call back 613-555-0142.",24
+HV-0159,9/2/2025,9/15/2025,9/24/2025,discharged,10/26/2025,administrative,0,TRUE,not_yet_due,not_yet_due,Discharged for repeated rule violations (use on premises).,24
+HV-0160,9/3/2025,9/9/2025,10/27/2025,phase_2,,,0,FALSE,,,-,24
+HV-0161,9/4/2025,,,not_admitted,,,,,,,Referred by drug tx court; client did not attend,24
+HV-0162,9/5/2025,9/16/2025,10/6/2025,phase_3,,,1250,FALSE,,,Discussed aftercare plan w/ case mgr,24
+HV-0163,9/6/2025,9/15/2025,9/21/2025,aftercare,12/26/2025,completed,750,FALSE,not_yet_due,not_yet_due,Graduated program. Attending weekly aftercare group.,24
+HV-0164,9/10/2025,10/3/2025,10/29/2025,discharged,12/3/2025,self_discharge,0,TRUE,not_yet_due,not_yet_due,Self-discharged. Stated wanted to go home.,24
+HV-0165,9/10/2025,9/13/2025,9/19/2025,discharged,11/6/2025,other,1000,FALSE,not_yet_due,not_yet_due,-,24
+HV-0166,9/11/2025,10/6/2025,11/2/2025,discharged,12/18/2025,transfer,0,TRUE,not_yet_due,not_yet_due,Moved to program in home region.,24
+HV-0167,9/15/2025,9/18/2025,9/21/2025,discharged,11/10/2025,self_discharge,1500,FALSE,not_yet_due,not_yet_due,Left AMA after conflict w/ peer.,24
+HV-0168,9/15/2025,9/17/2025,9/30/2025,phase_3,,,0,TRUE,,,Discussed aftercare plan w/ case mgr,24
+HV-0169,9/20/2025,9/24/2025,10/17/2025,discharged,1/11/2026,self_discharge,0,TRUE,not_yet_due,not_yet_due,Left AMA after conflict w/ peer.,24
+HV-0170,9/25/2025,10/1/2025,,not_admitted,,,1000,FALSE,,,"assessed - needs medical detox first, referred out",24
+HV-0171,9/25/2025,10/3/2025,10/18/2025,discharged,11/12/2025,self_discharge,500,FALSE,not_yet_due,not_yet_due,Self-discharged. Stated wanted to go home.,24
+HV-0172,9/28/2025,10/7/2025,11/2/2025,phase_2,,,750,FALSE,,,Incident: vape found in room - verbal warning given.,24
+HV-0173,9/30/2025,10/19/2025,,not_admitted,,,750,FALSE,,,"on waitlist, will call when bed opens",24
+HV-0174,10/1/2025,,,not_admitted,,,,,,,"referral recvd from hospital SW, unable to reach client",24
+HV-0175,10/1/2025,10/3/2025,10/19/2025,phase_2,,,1250,FALSE,,,  doing well. sponsor identified ,24
+HV-0176,10/5/2025,10/6/2025,,not_admitted,,,1000,FALSE,,,Not appropriate for level of care at this time.,24
+HV-0177,10/6/2025,10/9/2025,,not_admitted,,,750,FALSE,,,Not appropriate for level of care at this time.,24
+HV-0178,10/12/2025,,,not_admitted,,,,,,,"referral recvd from hospital SW, unable to reach client",24
+HV-0179,10/13/2025,,,not_admitted,,,,,,,"referral recvd from hospital SW, unable to reach client",24
+HV-0180,10/13/2025,11/1/2025,,not_admitted,,,0,TRUE,,,Waitlisted. f/u call next wk,24
+HV-0181,10/15/2025,11/11/2025,12/5/2025,phase_2,,,1500,FALSE,,,Incident: vape found in room - verbal warning given.,24
+HV-0182,10/15/2025,12/19/2025,12/22/2025,phase_1,,,0,TRUE,,,"Low mood this wk, referred to counsellor for check-in.",24
+HV-0183,10/31/2025,11/13/2025,11/20/2025,phase_2,,,750,FALSE,,,"started part-time job search, good engagement in groups",24
+HV-0184,11/3/2025,11/5/2025,,not_admitted,,,750,FALSE,,,"assessed - needs medical detox first, referred out",24
+HV-0185,11/6/2025,11/9/2025,,not_admitted,,,1000,FALSE,,,Waitlisted. f/u call next wk,24
+HV-0186,11/7/2025,,,not_admitted,,,,,,,"referral recvd from hospital SW, unable to reach client",24
+HV-0187,11/10/2025,11/23/2025,11/27/2025,discharged,12/31/2025,self_discharge,0,TRUE,not_yet_due,not_yet_due,Self-discharged. Stated wanted to go home.,24
+HV-0188,11/16/2025,11/19/2025,,not_admitted,,,0,FALSE,,,"on waitlist, will call when bed opens",24
+HV-0189,11/19/2025,11/21/2025,11/27/2025,phase_2,,,1000,FALSE,,,"started part-time job search, good engagement in groups",24
+HV-0190,11/21/2025,,,not_admitted,,,,,,,Referred by drug tx court; client did not attend,24
+HV-0191,11/27/2025,,,not_admitted,,,,,,,Phone disconnected. Closed referral.,24
+HV-0192,11/29/2025,,,not_admitted,,,,,,,"referral recvd from hospital SW, unable to reach client",24
+HV-0193,12/9/2025,,,not_admitted,,,,,,,Client declined assessment - wants outpatient instead,24
+HV-0194,12/11/2025,,,not_admitted,,,,,,,No-show for intake appt. Left VM x2.,24
+HV-0195,12/14/2025,12/23/2025,12/27/2025,phase_1,,,1000,FALSE,,,"Res. settling in, attending all groups. Some cravings reported.",24
+HV-0196,12/15/2025,12/20/2025,12/26/2025,phase_1,,,750,FALSE,,,"new admit - orientation done, house rules signed",24
+HV-0197,12/18/2025,12/22/2025,12/24/2025,phase_1,,,750,FALSE,,,"Low mood this wk, referred to counsellor for check-in.",24
+HV-0198,12/22/2025,,,not_admitted,,,,,,,pending - intake not booked yet,24
+HV-0199,12/27/2025,1/1/2026,1/6/2026,phase_1,,,1250,FALSE,,,"Res. settling in, attending all groups. Some cravings reported.",24
+HV-0200,12/29/2025,,,not_admitted,,,,,,,Referred by drug tx court; client did not attend,24

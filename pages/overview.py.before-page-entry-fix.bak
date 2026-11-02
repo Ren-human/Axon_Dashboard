@@ -1,0 +1,234 @@
+"""Executive overview using the selected run supplied by app.py.
+
+Outcomes are wide aggregates from db.py's `outcomes` table, not long-form
+`outcomes_summary` rows. Run this page through app.py to retain shared filters.
+"""
+from math import isclose, isfinite
+
+import pandas as pd
+import plotly.graph_objects as go
+import streamlit as st
+
+from db import numeric
+from ui import lesson, plot, table, value
+
+OUTCOME_LABELS = {
+    'engaged_in_recovery': 'Engaged in recovery',
+    'relapse_reported': 'Relapse reported',
+    'lost_to_follow_up': 'Lost to follow-up',
+    'unknown': 'Unknown',
+    'missing': 'Missing',
+    'due_but_marked_not_yet_due': 'Due but marked not yet due',
+    'unrecognized': 'Unrecognized',
+}
+
+
+def load(name, columns=()):
+    """A missing optional table must not prevent the other panels rendering."""
+    try:
+        return numeric(table(name), columns)
+    except KeyError:
+        return pd.DataFrame()
+
+
+def valid_count(number):
+    return (pd.notna(number) and isfinite(number)
+            and number >= 0 and float(number).is_integer())
+
+
+def make_funnel(data):
+    if not {'stage', 'n'} <= set(data):
+        return None, {}
+    aliases = {
+        'referral': 'Referrals', 'referrals': 'Referrals',
+        'intake': 'Intakes', 'intakes': 'Intakes',
+        'admission': 'Admissions', 'admissions': 'Admissions', 'admitted': 'Admissions',
+    }
+    work = data.assign(stage_name=data['stage'].astype(str).str.strip().str.lower().map(aliases))
+    work = work.dropna(subset=['stage_name'])
+    if work['stage_name'].duplicated().any():
+        return None, {}
+    counts = dict(zip(work['stage_name'], work['n']))
+    order = ['Referrals', 'Intakes', 'Admissions']
+    if any(not valid_count(counts.get(stage)) for stage in order):
+        return None, counts
+    fig = go.Figure(go.Funnel(y=order, x=[counts[stage] for stage in order],
+                              textinfo='value'))
+    fig.update_layout(height=300, showlegend=False)
+    return fig, counts
+
+
+def make_occupancy(data):
+    if not {'month', 'occupancy_lower'} <= set(data):
+        return None, pd.DataFrame()
+    view = data.copy()
+    view['_date'] = pd.to_datetime(view['month'].astype(str), format='mixed', errors='coerce')
+    view = view.dropna(subset=['_date']).sort_values('_date')
+    # Distinct dates in the same reporting month are still ambiguous aggregates.
+    if view.empty or view['_date'].dt.to_period('M').duplicated().any():
+        return None, pd.DataFrame()
+    view.loc[~view['occupancy_lower'].map(
+        lambda x: pd.notna(x) and isfinite(x) and x >= 0), 'occupancy_lower'] = float('nan')
+    fig = go.Figure(go.Scatter(x=view['_date'], y=view['occupancy_lower'],
+                              mode='lines+markers', connectgaps=False,
+                              hovertemplate='%{x|%b %Y}: %{y:.1%}<extra></extra>'))
+    fig.update_layout(height=300, showlegend=False)
+    fig.update_yaxes(tickformat='.0%', title='Capacity used', rangemode='tozero')
+    return fig, view
+
+
+def outcome_summary(data, months):
+    """Select one wide aggregate; never combine different anchors/cohorts/runs.
+
+    Coverage is known outcomes / all residents due. Lost-to-follow-up, unknown,
+    missing and other unresolved categories remain in the due denominator.
+    """
+    required = {'horizon_months', 'due_n'}
+    if not required <= set(data):
+        return None, 'Outcomes require horizon_months and due_n in the outcomes table.'
+    rows = data[data['horizon_months'] == months]
+    if rows.empty:
+        return None, f'No {months}-month outcomes for the selected reporting run.'
+    if len(rows) != 1:
+        return None, 'Multiple rows for this horizon; select a single anchor/cohort upstream.'
+    row = rows.iloc[0]
+    due = row['due_n']
+    if not valid_count(due):
+        return None, 'due_n must be a non-negative, finite whole count.'
+
+    counts = {col: row[col] for col in OUTCOME_LABELS if col in row.index}
+    complete = (len(counts) == len(OUTCOME_LABELS)
+                and all(valid_count(n) for n in counts.values())
+                and isclose(sum(counts.values()), due, rel_tol=0, abs_tol=1e-9))
+    # The pipeline defines known outcomes as engagement + reported relapse.
+    # Only derive this count when the source count column is absent.
+    if 'known_outcome_n' in row.index:
+        known = row['known_outcome_n']
+    elif all(valid_count(counts.get(c)) for c in ('engaged_in_recovery', 'relapse_reported')):
+        known = counts['engaged_in_recovery'] + counts['relapse_reported']
+    else:
+        known = float('nan')
+    known_valid = valid_count(known) and known <= due
+    if complete and known_valid:
+        known_valid = isclose(known, counts['engaged_in_recovery'] + counts['relapse_reported'],
+                              rel_tol=0, abs_tol=1e-9)
+    coverage = known / due if known_valid and due > 0 else float('nan')
+    issues = []
+    if not known_valid:
+        issues.append('Known outcome count is missing, invalid or inconsistent; coverage is unavailable.')
+    if not complete:
+        issues.append('Outcome categories are missing, invalid or do not sum to due_n; chart withheld.')
+    return {'due': due, 'known': known if known_valid else float('nan'),
+            'coverage': coverage, 'counts': counts if complete else None}, ' '.join(issues)
+
+
+def draw_outcome(summary, issue, months):
+    st.markdown(f'**{months}-month follow-up**')
+    if summary is None:
+        st.info(issue)
+        return
+    st.caption(f"Residents due: {value(summary['due'])} · Known outcomes: {value(summary['known'])}")
+    if issue:
+        st.warning(issue)
+    if summary['due'] == 0:
+        st.info('No residents due. Coverage and outcome rates are undefined.')
+        return
+    if summary['counts'] is None:
+        return
+    fig = go.Figure()
+    for category, count in summary['counts'].items():
+        fig.add_trace(go.Bar(
+            x=[count / summary['due']], y=['All due'], orientation='h',
+            name=OUTCOME_LABELS[category], customdata=[count],
+            hovertemplate='%{fullData.name}: %{customdata:,.0f} (%{x:.1%})<extra></extra>',
+        ))
+    fig.update_layout(barmode='stack', height=300)
+    fig.update_xaxes(range=[0, 1], tickformat='.0%', title='Fraction of all residents due')
+    plot(fig, f'overview_outcomes_{months}')
+
+
+def render_overview():
+    st.header('Executive Overview')
+    dashboard, agent = st.columns([7, 3], gap='medium')
+    with dashboard:
+        funnel = load('funnel', ['n'])
+        occupancy = load('monthly_occupancy', ['occupancy_lower'])
+        outcomes = load('outcomes', ['horizon_months', 'due_n', 'known_outcome_n', *OUTCOME_LABELS])
+        funnel_fig, counts = make_funnel(funnel)
+        occupancy_fig, monthly = make_occupancy(occupancy)
+        six, six_issue = outcome_summary(outcomes, 6)
+        twelve, twelve_issue = outcome_summary(outcomes, 12)
+        referrals, admissions = counts.get('Referrals'), counts.get('Admissions')
+        conversion = (admissions / referrals if valid_count(referrals) and referrals > 0
+                      and valid_count(admissions) else float('nan'))
+        average = monthly['occupancy_lower'].mean() if not monthly.empty else float('nan')
+        coverage = six['coverage'] if six is not None else float('nan')
+
+        k1, k2, k3 = st.columns(3)
+        with k1:
+            st.metric('Admission Conversion', value(conversion, percent=True))
+            st.caption('Admissions / referrals')
+        with k2:
+            st.metric('Average Occupancy', value(average, percent=True))
+            st.caption('Unweighted mean of reported monthly lower bounds; missing values excluded.')
+        with k3:
+            st.metric('6-Month Follow-up Coverage', value(coverage, percent=True))
+            if six is not None:
+                st.caption(f"Known outcomes / residents due: {value(six['known'])} / {value(six['due'])}")
+            else:
+                st.caption(six_issue)
+
+        left, right = st.columns(2)
+        with left:
+            st.subheader('Admission Funnel')
+            if funnel_fig is not None:
+                plot(funnel_fig, 'overview_funnel')
+            else:
+                st.info('Funnel unavailable: expected one valid count per referral, intake and admission stage.')
+            st.page_link('pages/funnel.py', label='Explore funnel →')
+        with right:
+            st.subheader('Monthly Occupancy')
+            if occupancy_fig is not None:
+                plot(occupancy_fig, 'overview_occupancy')
+            else:
+                st.info('Monthly occupancy unavailable or ambiguous.')
+            st.caption('Known occupancy lower bound against capacity.')
+            st.page_link('pages/occupancy.py', label='Explore occupancy →')
+
+        st.subheader('Resident Outcomes')
+        c6, c12 = st.columns(2)
+        with c6:
+            draw_outcome(six, six_issue, 6)
+        with c12:
+            draw_outcome(twelve, twelve_issue, 12)
+        st.caption('Coverage counts engagement in recovery and reported relapse as known outcomes. '
+                   'All unresolved categories stay in the due denominator. '
+                   'Engagement in recovery is a recorded category, not verified sobriety.')
+        st.page_link('pages/outcomes.py', label='Explore outcomes →')
+
+        with st.expander('More analysis'):
+            a, b = st.columns(2)
+            a.page_link('pages/los.py', label='Length of stay →')
+            b.page_link('pages/quality.py', label='Data quality →')
+            st.caption('All metrics use the database run selected in the sidebar.')
+            st.caption('Outcomes columns available: ' + (', '.join(outcomes.columns) or 'none'))
+        lesson('Six-month coverage is known_outcome_n / due_n from the outcomes table '
+               '(the pipeline calls this ascertainment_rate). Zero residents due yields N/A. '
+               'Multiple rows per horizon require an explicit anchor/cohort selection; they are not summed.')
+
+    with agent:
+        st.subheader('AI Analyst')
+        st.caption('Demo chat · connect the Task B agent to enable data analysis.')
+        history = st.session_state.setdefault('chat_history', [])
+        with st.container(height=520):
+            for message in history:
+                with st.chat_message(message['role']):
+                    st.write(message['content'])
+        if prompt := st.chat_input('Ask about operational metrics...', key='overview_agent'):
+            history.append({'role': 'user', 'content': prompt})
+            # Preserve the uploaded chat placeholder until a real agent is connected.
+            history.append({'role': 'assistant', 'content': f'Received: {prompt}'})
+            st.rerun()
+
+
+

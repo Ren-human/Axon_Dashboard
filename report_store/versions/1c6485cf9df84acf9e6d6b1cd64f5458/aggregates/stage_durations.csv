@@ -1,0 +1,5 @@
+﻿stage,total_records,n,median_days,p90_days,min_days,max_days,missing_or_invalid_endpoint,endpoint_after_cutoff,negative_duration
+referral_to_intake,141,101,6.0,18.0,1,65,38,1,1
+intake_to_admission,141,71,9.0,26.0,1,49,69,1,0
+referral_to_admission,141,76,16.0,46.0,5,68,64,1,0
+admission_to_discharge,141,56,75.5,149.5,9,219,81,4,0

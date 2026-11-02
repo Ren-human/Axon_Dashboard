@@ -1,0 +1,11 @@
+{
+  "source_csv": "data/harbourview_residents.csv",
+  "version_root": "report_store",
+  "report": {
+    "as_of": "2026-01-15",
+    "fiscal_year": 2025,
+    "capacity": 24,
+    "followup_anchor": "discharge",
+    "occupancy_start": "2025-01-01"
+  }
+}

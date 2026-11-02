@@ -1,0 +1,30 @@
+﻿source_row,resident_id,rule,severity,explanation
+10,HV-0009,MISSING_INTAKE,MEDIUM,admission_date exists without intake_date; no milestone imputation
+26,HV-0025,WAIVED_WITH_POSITIVE_FEE,REVIEW,Waiver conflicts with positive fee
+32,HV-0031,MISSING_DISCHARGE_DATE,HIGH,Exited status without usable exit date
+42,HV-0041,NEGATIVE_REFERRAL_TO_INTAKE,HIGH,intake_date precedes referral_date; affected duration excluded
+68,HV-0067,MISSING_DISCHARGE_REASON,MEDIUM,Exit exists without reason
+73,HV-0072,MISSING_INTAKE,MEDIUM,admission_date exists without intake_date; no milestone imputation
+73,HV-0072,MISSING_DISCHARGE_DATE,HIGH,Exited status without usable exit date
+96,HV-0095,MISSING_INTAKE,MEDIUM,admission_date exists without intake_date; no milestone imputation
+105,HV-0104,MISSING_DISCHARGE_REASON,MEDIUM,Exit exists without reason
+115,HV-0114,MISSING_INTAKE,MEDIUM,admission_date exists without intake_date; no milestone imputation
+124,HV-0123,WAIVED_WITH_POSITIVE_FEE,REVIEW,Waiver conflicts with positive fee
+134,HV-0133,FUTURE_DISCHARGE_DATE,REVIEW,Event is after reporting cutoff
+137,HV-0136,MISSING_DISCHARGE_DATE,HIGH,Exited status without usable exit date
+139,HV-0138,FUTURE_DISCHARGE_DATE,REVIEW,Event is after reporting cutoff
+150,HV-0149,NEGATIVE_REFERRAL_TO_INTAKE,HIGH,intake_date precedes referral_date; affected duration excluded
+151,HV-0150,FUTURE_DISCHARGE_DATE,REVIEW,Event is after reporting cutoff
+151,HV-0150,MISSING_INTAKE,MEDIUM,admission_date exists without intake_date; no milestone imputation
+156,HV-0155,MISSING_INTAKE,MEDIUM,admission_date exists without intake_date; no milestone imputation
+161,HV-0160,NOT_WAIVED_ZERO_FEE,REVIEW,Zero fee without waiver
+170,HV-0169,FUTURE_DISCHARGE_DATE,REVIEW,Event is after reporting cutoff
+189,HV-0188,NOT_WAIVED_ZERO_FEE,REVIEW,Zero fee without waiver
+200,HV-0199,FUTURE_INTAKE_DATE,REVIEW,Event is after reporting cutoff
+200,HV-0199,FUTURE_ADMISSION_DATE,REVIEW,Event is after reporting cutoff
+82,HV-0081,OUTCOME_BEFORE_DUE_6M,REVIEW,Recorded outcome before calculated due date; excluded from mature cohort
+114,HV-0113,OUTCOME_BEFORE_DUE_6M,REVIEW,Recorded outcome before calculated due date; excluded from mature cohort
+128,HV-0127,OUTCOME_BEFORE_DUE_6M,REVIEW,Recorded outcome before calculated due date; excluded from mature cohort
+19,HV-0018,OUTCOME_BEFORE_DUE_12M,REVIEW,Recorded outcome before calculated due date; excluded from mature cohort
+20,HV-0019,OUTCOME_BEFORE_DUE_12M,REVIEW,Recorded outcome before calculated due date; excluded from mature cohort
+41,HV-0040,OUTCOME_BEFORE_DUE_12M,REVIEW,Recorded outcome before calculated due date; excluded from mature cohort

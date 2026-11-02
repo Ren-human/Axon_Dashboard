@@ -1,0 +1,8 @@
+# Local credentials must never be committed.
+.streamlit/secrets.toml
+.env
+.env.local
+# Local audit and deployment backups.
+.agent_audit.jsonl
+.partb_backups/
+__pycache__/

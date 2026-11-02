@@ -1,0 +1,3397 @@
+{
+  "metadata": {
+    "as_of": "2025-12-31",
+    "snapshot_as_of": "2026-01-15",
+    "fiscal_year": 2025,
+    "funnel_cohort_n": 141,
+    "followup_cohort": "All historical exits by reporting cutoff, maturity assessed at cutoff",
+    "followup_anchor": "discharge",
+    "input_rows": 200,
+    "included_unique_residents": 200,
+    "excluded_identity_rows": 0,
+    "bed_capacity": 24,
+    "source_capacity_values": [
+      24
+    ],
+    "occupancy_start": "2025-01-01",
+    "issue_count": 29,
+    "residents_with_issues": 26,
+    "input_file": "raw.csv",
+    "input_sha256": "cddf4084f61a8d3a575d30e573972e59253d7aca7ed4e7a62c0a0bc52cd1d0ce",
+    "input_columns": [
+      "resident_id",
+      "referral_date",
+      "intake_date",
+      "admission_date",
+      "current_status",
+      "discharge_date",
+      "discharge_reason",
+      "entrance_fee",
+      "fee_waived",
+      "followup_6m",
+      "followup_12m",
+      "staff_note",
+      "bed_capacity"
+    ],
+    "capacity_overridden": true,
+    "metrics_version": "1.0.1"
+  },
+  "observed_milestones": {
+    "referral_date": 141,
+    "intake_date": 102,
+    "admission_date": 76,
+    "discharge_date": 56
+  },
+  "funnel": [
+    {
+      "stage": "referral",
+      "n": 141,
+      "previous_stage_n": 141,
+      "conversion_from_previous": 1.0,
+      "conversion_from_referrals": 1.0
+    },
+    {
+      "stage": "intake",
+      "n": 101,
+      "previous_stage_n": 141,
+      "conversion_from_previous": 0.7163120567375887,
+      "conversion_from_referrals": 0.7163120567375887
+    },
+    {
+      "stage": "admission",
+      "n": 70,
+      "previous_stage_n": 101,
+      "conversion_from_previous": 0.693069306930693,
+      "conversion_from_referrals": 0.49645390070921985
+    },
+    {
+      "stage": "discharge",
+      "n": 52,
+      "previous_stage_n": 70,
+      "conversion_from_previous": 0.7428571428571429,
+      "conversion_from_referrals": 0.36879432624113473
+    }
+  ],
+  "stage_durations": [
+    {
+      "stage": "referral_to_intake",
+      "total_records": 141,
+      "n": 101,
+      "median_days": 6.0,
+      "p90_days": 18.0,
+      "min_days": 1,
+      "max_days": 65,
+      "missing_or_invalid_endpoint": 38,
+      "endpoint_after_cutoff": 1,
+      "negative_duration": 1
+    },
+    {
+      "stage": "intake_to_admission",
+      "total_records": 141,
+      "n": 71,
+      "median_days": 9.0,
+      "p90_days": 26.0,
+      "min_days": 1,
+      "max_days": 49,
+      "missing_or_invalid_endpoint": 69,
+      "endpoint_after_cutoff": 1,
+      "negative_duration": 0
+    },
+    {
+      "stage": "referral_to_admission",
+      "total_records": 141,
+      "n": 76,
+      "median_days": 16.0,
+      "p90_days": 46.0,
+      "min_days": 5,
+      "max_days": 68,
+      "missing_or_invalid_endpoint": 64,
+      "endpoint_after_cutoff": 1,
+      "negative_duration": 0
+    },
+    {
+      "stage": "admission_to_discharge",
+      "total_records": 141,
+      "n": 56,
+      "median_days": 75.5,
+      "p90_days": 149.5,
+      "min_days": 9,
+      "max_days": 219,
+      "missing_or_invalid_endpoint": 81,
+      "endpoint_after_cutoff": 4,
+      "negative_duration": 0
+    }
+  ],
+  "stage_unresolved": [
+    {
+      "stage": "referral_to_intake",
+      "start_observed_n": 141,
+      "no_next_milestone_by_cutoff_n": 39,
+      "elapsed_n": 39,
+      "elapsed_median_days": 185.0,
+      "elapsed_p90_days": 324.0,
+      "elapsed_min_days": 2,
+      "elapsed_max_days": 358
+    },
+    {
+      "stage": "intake_to_admission",
+      "start_observed_n": 102,
+      "no_next_milestone_by_cutoff_n": 31,
+      "elapsed_n": 31,
+      "elapsed_median_days": 164.0,
+      "elapsed_p90_days": 332.0,
+      "elapsed_min_days": 42,
+      "elapsed_max_days": 352
+    },
+    {
+      "stage": "referral_to_admission",
+      "start_observed_n": 141,
+      "no_next_milestone_by_cutoff_n": 65,
+      "elapsed_n": 65,
+      "elapsed_median_days": 181.0,
+      "elapsed_p90_days": 324.0,
+      "elapsed_min_days": 2,
+      "elapsed_max_days": 360
+    },
+    {
+      "stage": "admission_to_discharge",
+      "start_observed_n": 76,
+      "no_next_milestone_by_cutoff_n": 20,
+      "elapsed_n": 20,
+      "elapsed_median_days": 74.0,
+      "elapsed_p90_days": 158.3,
+      "elapsed_min_days": 4,
+      "elapsed_max_days": 312
+    }
+  ],
+  "los": {
+    "ended_stays": {
+      "n": 80,
+      "median_days": 95.0,
+      "p90_days": 188.60000000000005,
+      "min_days": 9,
+      "max_days": 250
+    },
+    "ongoing_elapsed_stays": {
+      "n": 18,
+      "median_days": 69.0,
+      "p90_days": 140.50000000000003,
+      "min_days": 4,
+      "max_days": 161
+    },
+    "program_completed_subset": {
+      "n": 40,
+      "median_days": 129.0,
+      "p90_days": 213.5,
+      "min_days": 79,
+      "max_days": 250
+    },
+    "exclusions": {
+      "no_admission_by_cutoff": 91,
+      "ended_before_fiscal_year": 8,
+      "unknown_exit": 3
+    }
+  },
+  "monthly_occupancy": [
+    {
+      "month": "2025-01",
+      "period_start": "2025-01-01",
+      "period_end_inclusive": "2025-01-31",
+      "observed_days": 31,
+      "bed_capacity": 24,
+      "available_bed_days": 744,
+      "known_bed_days_lower": 628,
+      "uncertain_bed_days": 31,
+      "bed_days_upper": 659,
+      "occupancy_lower": 0.8440860215053764,
+      "occupancy_upper": 0.885752688172043,
+      "average_census_lower": 20.258064516129032,
+      "average_census_upper": 21.258064516129032,
+      "period_end_census_lower": 22,
+      "period_end_census_upper": 23,
+      "lower_exceeds_capacity": false,
+      "upper_exceeds_capacity": false
+    },
+    {
+      "month": "2025-02",
+      "period_start": "2025-02-01",
+      "period_end_inclusive": "2025-02-28",
+      "observed_days": 28,
+      "bed_capacity": 24,
+      "available_bed_days": 672,
+      "known_bed_days_lower": 579,
+      "uncertain_bed_days": 35,
+      "bed_days_upper": 614,
+      "occupancy_lower": 0.8616071428571429,
+      "occupancy_upper": 0.9136904761904762,
+      "average_census_lower": 20.678571428571427,
+      "average_census_upper": 21.928571428571427,
+      "period_end_census_lower": 22,
+      "period_end_census_upper": 24,
+      "lower_exceeds_capacity": false,
+      "upper_exceeds_capacity": false
+    },
+    {
+      "month": "2025-03",
+      "period_start": "2025-03-01",
+      "period_end_inclusive": "2025-03-31",
+      "observed_days": 31,
+      "bed_capacity": 24,
+      "available_bed_days": 744,
+      "known_bed_days_lower": 688,
+      "uncertain_bed_days": 62,
+      "bed_days_upper": 750,
+      "occupancy_lower": 0.9247311827956989,
+      "occupancy_upper": 1.0080645161290323,
+      "average_census_lower": 22.193548387096776,
+      "average_census_upper": 24.193548387096776,
+      "period_end_census_lower": 22,
+      "period_end_census_upper": 24,
+      "lower_exceeds_capacity": false,
+      "upper_exceeds_capacity": true
+    },
+    {
+      "month": "2025-04",
+      "period_start": "2025-04-01",
+      "period_end_inclusive": "2025-04-30",
+      "observed_days": 30,
+      "bed_capacity": 24,
+      "available_bed_days": 720,
+      "known_bed_days_lower": 703,
+      "uncertain_bed_days": 60,
+      "bed_days_upper": 763,
+      "occupancy_lower": 0.9763888888888889,
+      "occupancy_upper": 1.0597222222222222,
+      "average_census_lower": 23.433333333333334,
+      "average_census_upper": 25.433333333333334,
+      "period_end_census_lower": 24,
+      "period_end_census_upper": 26,
+      "lower_exceeds_capacity": false,
+      "upper_exceeds_capacity": true
+    },
+    {
+      "month": "2025-05",
+      "period_start": "2025-05-01",
+      "period_end_inclusive": "2025-05-31",
+      "observed_days": 31,
+      "bed_capacity": 24,
+      "available_bed_days": 744,
+      "known_bed_days_lower": 730,
+      "uncertain_bed_days": 62,
+      "bed_days_upper": 792,
+      "occupancy_lower": 0.9811827956989247,
+      "occupancy_upper": 1.064516129032258,
+      "average_census_lower": 23.548387096774192,
+      "average_census_upper": 25.548387096774192,
+      "period_end_census_lower": 24,
+      "period_end_census_upper": 26,
+      "lower_exceeds_capacity": false,
+      "upper_exceeds_capacity": true
+    },
+    {
+      "month": "2025-06",
+      "period_start": "2025-06-01",
+      "period_end_inclusive": "2025-06-30",
+      "observed_days": 30,
+      "bed_capacity": 24,
+      "available_bed_days": 720,
+      "known_bed_days_lower": 679,
+      "uncertain_bed_days": 60,
+      "bed_days_upper": 739,
+      "occupancy_lower": 0.9430555555555555,
+      "occupancy_upper": 1.0263888888888888,
+      "average_census_lower": 22.633333333333333,
+      "average_census_upper": 24.633333333333333,
+      "period_end_census_lower": 24,
+      "period_end_census_upper": 26,
+      "lower_exceeds_capacity": false,
+      "upper_exceeds_capacity": true
+    },
+    {
+      "month": "2025-07",
+      "period_start": "2025-07-01",
+      "period_end_inclusive": "2025-07-31",
+      "observed_days": 31,
+      "bed_capacity": 24,
+      "available_bed_days": 744,
+      "known_bed_days_lower": 666,
+      "uncertain_bed_days": 67,
+      "bed_days_upper": 733,
+      "occupancy_lower": 0.8951612903225806,
+      "occupancy_upper": 0.9852150537634409,
+      "average_census_lower": 21.483870967741936,
+      "average_census_upper": 23.64516129032258,
+      "period_end_census_lower": 23,
+      "period_end_census_upper": 26,
+      "lower_exceeds_capacity": false,
+      "upper_exceeds_capacity": false
+    },
+    {
+      "month": "2025-08",
+      "period_start": "2025-08-01",
+      "period_end_inclusive": "2025-08-31",
+      "observed_days": 31,
+      "bed_capacity": 24,
+      "available_bed_days": 744,
+      "known_bed_days_lower": 545,
+      "uncertain_bed_days": 93,
+      "bed_days_upper": 638,
+      "occupancy_lower": 0.7325268817204301,
+      "occupancy_upper": 0.8575268817204301,
+      "average_census_lower": 17.580645161290324,
+      "average_census_upper": 20.580645161290324,
+      "period_end_census_lower": 15,
+      "period_end_census_upper": 18,
+      "lower_exceeds_capacity": false,
+      "upper_exceeds_capacity": false
+    },
+    {
+      "month": "2025-09",
+      "period_start": "2025-09-01",
+      "period_end_inclusive": "2025-09-30",
+      "observed_days": 30,
+      "bed_capacity": 24,
+      "available_bed_days": 720,
+      "known_bed_days_lower": 587,
+      "uncertain_bed_days": 90,
+      "bed_days_upper": 677,
+      "occupancy_lower": 0.8152777777777778,
+      "occupancy_upper": 0.9402777777777778,
+      "average_census_lower": 19.566666666666666,
+      "average_census_upper": 22.566666666666666,
+      "period_end_census_lower": 24,
+      "period_end_census_upper": 27,
+      "lower_exceeds_capacity": false,
+      "upper_exceeds_capacity": false
+    },
+    {
+      "month": "2025-10",
+      "period_start": "2025-10-01",
+      "period_end_inclusive": "2025-10-31",
+      "observed_days": 31,
+      "bed_capacity": 24,
+      "available_bed_days": 744,
+      "known_bed_days_lower": 738,
+      "uncertain_bed_days": 93,
+      "bed_days_upper": 831,
+      "occupancy_lower": 0.9919354838709677,
+      "occupancy_upper": 1.1169354838709677,
+      "average_census_lower": 23.806451612903224,
+      "average_census_upper": 26.806451612903224,
+      "period_end_census_lower": 24,
+      "period_end_census_upper": 27,
+      "lower_exceeds_capacity": false,
+      "upper_exceeds_capacity": true
+    },
+    {
+      "month": "2025-11",
+      "period_start": "2025-11-01",
+      "period_end_inclusive": "2025-11-30",
+      "observed_days": 30,
+      "bed_capacity": 24,
+      "available_bed_days": 720,
+      "known_bed_days_lower": 640,
+      "uncertain_bed_days": 90,
+      "bed_days_upper": 730,
+      "occupancy_lower": 0.8888888888888888,
+      "occupancy_upper": 1.0138888888888888,
+      "average_census_lower": 21.333333333333332,
+      "average_census_upper": 24.333333333333332,
+      "period_end_census_lower": 21,
+      "period_end_census_upper": 24,
+      "lower_exceeds_capacity": false,
+      "upper_exceeds_capacity": true
+    },
+    {
+      "month": "2025-12",
+      "period_start": "2025-12-01",
+      "period_end_inclusive": "2025-12-31",
+      "observed_days": 31,
+      "bed_capacity": 24,
+      "available_bed_days": 744,
+      "known_bed_days_lower": 598,
+      "uncertain_bed_days": 93,
+      "bed_days_upper": 691,
+      "occupancy_lower": 0.803763440860215,
+      "occupancy_upper": 0.928763440860215,
+      "average_census_lower": 19.29032258064516,
+      "average_census_upper": 22.29032258064516,
+      "period_end_census_lower": 18,
+      "period_end_census_upper": 21,
+      "lower_exceeds_capacity": false,
+      "upper_exceeds_capacity": false
+    }
+  ],
+  "outcomes": [
+    {
+      "horizon_months": 6,
+      "anchor": "discharge",
+      "cohort_n": 91,
+      "outside_cohort": 109,
+      "eligibility_unknown": 3,
+      "not_due": 43,
+      "due_n": 45,
+      "engaged_in_recovery": 21,
+      "relapse_reported": 6,
+      "lost_to_follow_up": 13,
+      "unknown": 2,
+      "missing": 3,
+      "due_but_marked_not_yet_due": 0,
+      "unrecognized": 0,
+      "known_outcome_n": 27,
+      "unresolved_due_n": 18,
+      "ascertainment_rate": 0.6,
+      "recovery_fraction_all_due_lower": 0.4666666666666667,
+      "recovery_fraction_all_due_upper": 0.8666666666666667,
+      "relapse_fraction_all_due": 0.13333333333333333,
+      "ltfu_rate_all_due": 0.28888888888888886,
+      "unresolved_rate_all_due": 0.4
+    },
+    {
+      "horizon_months": 12,
+      "anchor": "discharge",
+      "cohort_n": 91,
+      "outside_cohort": 109,
+      "eligibility_unknown": 3,
+      "not_due": 80,
+      "due_n": 8,
+      "engaged_in_recovery": 1,
+      "relapse_reported": 2,
+      "lost_to_follow_up": 5,
+      "unknown": 0,
+      "missing": 0,
+      "due_but_marked_not_yet_due": 0,
+      "unrecognized": 0,
+      "known_outcome_n": 3,
+      "unresolved_due_n": 5,
+      "ascertainment_rate": 0.375,
+      "recovery_fraction_all_due_lower": 0.125,
+      "recovery_fraction_all_due_upper": 0.75,
+      "relapse_fraction_all_due": 0.25,
+      "ltfu_rate_all_due": 0.625,
+      "unresolved_rate_all_due": 0.625
+    }
+  ],
+  "data_quality_summary": [
+    {
+      "severity": "HIGH",
+      "rule": "MISSING_DISCHARGE_DATE",
+      "n": 3
+    },
+    {
+      "severity": "HIGH",
+      "rule": "NEGATIVE_REFERRAL_TO_INTAKE",
+      "n": 2
+    },
+    {
+      "severity": "MEDIUM",
+      "rule": "MISSING_DISCHARGE_REASON",
+      "n": 2
+    },
+    {
+      "severity": "MEDIUM",
+      "rule": "MISSING_INTAKE",
+      "n": 6
+    },
+    {
+      "severity": "REVIEW",
+      "rule": "FUTURE_ADMISSION_DATE",
+      "n": 1
+    },
+    {
+      "severity": "REVIEW",
+      "rule": "FUTURE_DISCHARGE_DATE",
+      "n": 4
+    },
+    {
+      "severity": "REVIEW",
+      "rule": "FUTURE_INTAKE_DATE",
+      "n": 1
+    },
+    {
+      "severity": "REVIEW",
+      "rule": "NOT_WAIVED_ZERO_FEE",
+      "n": 2
+    },
+    {
+      "severity": "REVIEW",
+      "rule": "OUTCOME_BEFORE_DUE_12M",
+      "n": 3
+    },
+    {
+      "severity": "REVIEW",
+      "rule": "OUTCOME_BEFORE_DUE_6M",
+      "n": 3
+    },
+    {
+      "severity": "REVIEW",
+      "rule": "WAIVED_WITH_POSITIVE_FEE",
+      "n": 2
+    }
+  ],
+  "data_quality_issues": [
+    {
+      "source_row": 10,
+      "resident_id": "HV-0009",
+      "rule": "MISSING_INTAKE",
+      "severity": "MEDIUM",
+      "explanation": "admission_date exists without intake_date; no milestone imputation"
+    },
+    {
+      "source_row": 26,
+      "resident_id": "HV-0025",
+      "rule": "WAIVED_WITH_POSITIVE_FEE",
+      "severity": "REVIEW",
+      "explanation": "Waiver conflicts with positive fee"
+    },
+    {
+      "source_row": 32,
+      "resident_id": "HV-0031",
+      "rule": "MISSING_DISCHARGE_DATE",
+      "severity": "HIGH",
+      "explanation": "Exited status without usable exit date"
+    },
+    {
+      "source_row": 42,
+      "resident_id": "HV-0041",
+      "rule": "NEGATIVE_REFERRAL_TO_INTAKE",
+      "severity": "HIGH",
+      "explanation": "intake_date precedes referral_date; affected duration excluded"
+    },
+    {
+      "source_row": 68,
+      "resident_id": "HV-0067",
+      "rule": "MISSING_DISCHARGE_REASON",
+      "severity": "MEDIUM",
+      "explanation": "Exit exists without reason"
+    },
+    {
+      "source_row": 73,
+      "resident_id": "HV-0072",
+      "rule": "MISSING_INTAKE",
+      "severity": "MEDIUM",
+      "explanation": "admission_date exists without intake_date; no milestone imputation"
+    },
+    {
+      "source_row": 73,
+      "resident_id": "HV-0072",
+      "rule": "MISSING_DISCHARGE_DATE",
+      "severity": "HIGH",
+      "explanation": "Exited status without usable exit date"
+    },
+    {
+      "source_row": 96,
+      "resident_id": "HV-0095",
+      "rule": "MISSING_INTAKE",
+      "severity": "MEDIUM",
+      "explanation": "admission_date exists without intake_date; no milestone imputation"
+    },
+    {
+      "source_row": 105,
+      "resident_id": "HV-0104",
+      "rule": "MISSING_DISCHARGE_REASON",
+      "severity": "MEDIUM",
+      "explanation": "Exit exists without reason"
+    },
+    {
+      "source_row": 115,
+      "resident_id": "HV-0114",
+      "rule": "MISSING_INTAKE",
+      "severity": "MEDIUM",
+      "explanation": "admission_date exists without intake_date; no milestone imputation"
+    },
+    {
+      "source_row": 124,
+      "resident_id": "HV-0123",
+      "rule": "WAIVED_WITH_POSITIVE_FEE",
+      "severity": "REVIEW",
+      "explanation": "Waiver conflicts with positive fee"
+    },
+    {
+      "source_row": 134,
+      "resident_id": "HV-0133",
+      "rule": "FUTURE_DISCHARGE_DATE",
+      "severity": "REVIEW",
+      "explanation": "Event is after reporting cutoff"
+    },
+    {
+      "source_row": 137,
+      "resident_id": "HV-0136",
+      "rule": "MISSING_DISCHARGE_DATE",
+      "severity": "HIGH",
+      "explanation": "Exited status without usable exit date"
+    },
+    {
+      "source_row": 139,
+      "resident_id": "HV-0138",
+      "rule": "FUTURE_DISCHARGE_DATE",
+      "severity": "REVIEW",
+      "explanation": "Event is after reporting cutoff"
+    },
+    {
+      "source_row": 150,
+      "resident_id": "HV-0149",
+      "rule": "NEGATIVE_REFERRAL_TO_INTAKE",
+      "severity": "HIGH",
+      "explanation": "intake_date precedes referral_date; affected duration excluded"
+    },
+    {
+      "source_row": 151,
+      "resident_id": "HV-0150",
+      "rule": "FUTURE_DISCHARGE_DATE",
+      "severity": "REVIEW",
+      "explanation": "Event is after reporting cutoff"
+    },
+    {
+      "source_row": 151,
+      "resident_id": "HV-0150",
+      "rule": "MISSING_INTAKE",
+      "severity": "MEDIUM",
+      "explanation": "admission_date exists without intake_date; no milestone imputation"
+    },
+    {
+      "source_row": 156,
+      "resident_id": "HV-0155",
+      "rule": "MISSING_INTAKE",
+      "severity": "MEDIUM",
+      "explanation": "admission_date exists without intake_date; no milestone imputation"
+    },
+    {
+      "source_row": 161,
+      "resident_id": "HV-0160",
+      "rule": "NOT_WAIVED_ZERO_FEE",
+      "severity": "REVIEW",
+      "explanation": "Zero fee without waiver"
+    },
+    {
+      "source_row": 170,
+      "resident_id": "HV-0169",
+      "rule": "FUTURE_DISCHARGE_DATE",
+      "severity": "REVIEW",
+      "explanation": "Event is after reporting cutoff"
+    },
+    {
+      "source_row": 189,
+      "resident_id": "HV-0188",
+      "rule": "NOT_WAIVED_ZERO_FEE",
+      "severity": "REVIEW",
+      "explanation": "Zero fee without waiver"
+    },
+    {
+      "source_row": 200,
+      "resident_id": "HV-0199",
+      "rule": "FUTURE_INTAKE_DATE",
+      "severity": "REVIEW",
+      "explanation": "Event is after reporting cutoff"
+    },
+    {
+      "source_row": 200,
+      "resident_id": "HV-0199",
+      "rule": "FUTURE_ADMISSION_DATE",
+      "severity": "REVIEW",
+      "explanation": "Event is after reporting cutoff"
+    },
+    {
+      "source_row": 82,
+      "resident_id": "HV-0081",
+      "rule": "OUTCOME_BEFORE_DUE_6M",
+      "severity": "REVIEW",
+      "explanation": "Recorded outcome before calculated due date; excluded from mature cohort"
+    },
+    {
+      "source_row": 114,
+      "resident_id": "HV-0113",
+      "rule": "OUTCOME_BEFORE_DUE_6M",
+      "severity": "REVIEW",
+      "explanation": "Recorded outcome before calculated due date; excluded from mature cohort"
+    },
+    {
+      "source_row": 128,
+      "resident_id": "HV-0127",
+      "rule": "OUTCOME_BEFORE_DUE_6M",
+      "severity": "REVIEW",
+      "explanation": "Recorded outcome before calculated due date; excluded from mature cohort"
+    },
+    {
+      "source_row": 19,
+      "resident_id": "HV-0018",
+      "rule": "OUTCOME_BEFORE_DUE_12M",
+      "severity": "REVIEW",
+      "explanation": "Recorded outcome before calculated due date; excluded from mature cohort"
+    },
+    {
+      "source_row": 20,
+      "resident_id": "HV-0019",
+      "rule": "OUTCOME_BEFORE_DUE_12M",
+      "severity": "REVIEW",
+      "explanation": "Recorded outcome before calculated due date; excluded from mature cohort"
+    },
+    {
+      "source_row": 41,
+      "resident_id": "HV-0040",
+      "rule": "OUTCOME_BEFORE_DUE_12M",
+      "severity": "REVIEW",
+      "explanation": "Recorded outcome before calculated due date; excluded from mature cohort"
+    }
+  ],
+  "resident_metrics": [
+    {
+      "resident_id": "HV-0001",
+      "source_row": 2,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0002",
+      "source_row": 3,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0003",
+      "source_row": 4,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0004",
+      "source_row": 5,
+      "los_category": "ended",
+      "los_days": 81
+    },
+    {
+      "resident_id": "HV-0005",
+      "source_row": 6,
+      "los_category": "ended",
+      "los_days": 63
+    },
+    {
+      "resident_id": "HV-0006",
+      "source_row": 7,
+      "los_category": "ended",
+      "los_days": 17
+    },
+    {
+      "resident_id": "HV-0007",
+      "source_row": 8,
+      "los_category": "ended",
+      "los_days": 250
+    },
+    {
+      "resident_id": "HV-0008",
+      "source_row": 9,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0009",
+      "source_row": 10,
+      "los_category": "ended",
+      "los_days": 25
+    },
+    {
+      "resident_id": "HV-0010",
+      "source_row": 11,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0011",
+      "source_row": 12,
+      "los_category": "ended",
+      "los_days": 8
+    },
+    {
+      "resident_id": "HV-0012",
+      "source_row": 13,
+      "los_category": "ended",
+      "los_days": 218
+    },
+    {
+      "resident_id": "HV-0013",
+      "source_row": 14,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0014",
+      "source_row": 15,
+      "los_category": "ended",
+      "los_days": 165
+    },
+    {
+      "resident_id": "HV-0015",
+      "source_row": 16,
+      "los_category": "ended",
+      "los_days": 107
+    },
+    {
+      "resident_id": "HV-0016",
+      "source_row": 17,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0017",
+      "source_row": 18,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0018",
+      "source_row": 19,
+      "los_category": "ended",
+      "los_days": 119
+    },
+    {
+      "resident_id": "HV-0019",
+      "source_row": 20,
+      "los_category": "ended",
+      "los_days": 136
+    },
+    {
+      "resident_id": "HV-0020",
+      "source_row": 21,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0021",
+      "source_row": 22,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0022",
+      "source_row": 23,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0023",
+      "source_row": 24,
+      "los_category": "ended",
+      "los_days": 98
+    },
+    {
+      "resident_id": "HV-0024",
+      "source_row": 25,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0025",
+      "source_row": 26,
+      "los_category": "ended",
+      "los_days": 188
+    },
+    {
+      "resident_id": "HV-0026",
+      "source_row": 27,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0027",
+      "source_row": 28,
+      "los_category": "ended",
+      "los_days": 188
+    },
+    {
+      "resident_id": "HV-0028",
+      "source_row": 29,
+      "los_category": "ended",
+      "los_days": 133
+    },
+    {
+      "resident_id": "HV-0029",
+      "source_row": 30,
+      "los_category": "ended",
+      "los_days": 213
+    },
+    {
+      "resident_id": "HV-0030",
+      "source_row": 31,
+      "los_category": "ended",
+      "los_days": 163
+    },
+    {
+      "resident_id": "HV-0031",
+      "source_row": 32,
+      "los_category": "unknown_exit",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0032",
+      "source_row": 33,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0033",
+      "source_row": 34,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0034",
+      "source_row": 35,
+      "los_category": "ended",
+      "los_days": 38
+    },
+    {
+      "resident_id": "HV-0035",
+      "source_row": 36,
+      "los_category": "ended",
+      "los_days": 222
+    },
+    {
+      "resident_id": "HV-0036",
+      "source_row": 37,
+      "los_category": "ended",
+      "los_days": 102
+    },
+    {
+      "resident_id": "HV-0037",
+      "source_row": 38,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0038",
+      "source_row": 39,
+      "los_category": "ended",
+      "los_days": 30
+    },
+    {
+      "resident_id": "HV-0039",
+      "source_row": 40,
+      "los_category": "ended",
+      "los_days": 93
+    },
+    {
+      "resident_id": "HV-0040",
+      "source_row": 41,
+      "los_category": "ended",
+      "los_days": 71
+    },
+    {
+      "resident_id": "HV-0041",
+      "source_row": 42,
+      "los_category": "ended",
+      "los_days": 75
+    },
+    {
+      "resident_id": "HV-0042",
+      "source_row": 43,
+      "los_category": "ended",
+      "los_days": 115
+    },
+    {
+      "resident_id": "HV-0043",
+      "source_row": 44,
+      "los_category": "ended",
+      "los_days": 177
+    },
+    {
+      "resident_id": "HV-0044",
+      "source_row": 45,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0045",
+      "source_row": 46,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0046",
+      "source_row": 47,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0047",
+      "source_row": 48,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0048",
+      "source_row": 49,
+      "los_category": "ended",
+      "los_days": 98
+    },
+    {
+      "resident_id": "HV-0049",
+      "source_row": 50,
+      "los_category": "ended",
+      "los_days": 81
+    },
+    {
+      "resident_id": "HV-0050",
+      "source_row": 51,
+      "los_category": "ended",
+      "los_days": 147
+    },
+    {
+      "resident_id": "HV-0051",
+      "source_row": 52,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0052",
+      "source_row": 53,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0053",
+      "source_row": 54,
+      "los_category": "ended",
+      "los_days": 62
+    },
+    {
+      "resident_id": "HV-0054",
+      "source_row": 55,
+      "los_category": "ended",
+      "los_days": 197
+    },
+    {
+      "resident_id": "HV-0055",
+      "source_row": 56,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0056",
+      "source_row": 57,
+      "los_category": "ended",
+      "los_days": 87
+    },
+    {
+      "resident_id": "HV-0057",
+      "source_row": 58,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0058",
+      "source_row": 59,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0059",
+      "source_row": 60,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0060",
+      "source_row": 61,
+      "los_category": "ended",
+      "los_days": 54
+    },
+    {
+      "resident_id": "HV-0061",
+      "source_row": 62,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0062",
+      "source_row": 63,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0063",
+      "source_row": 64,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0064",
+      "source_row": 65,
+      "los_category": "ended",
+      "los_days": 123
+    },
+    {
+      "resident_id": "HV-0065",
+      "source_row": 66,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0066",
+      "source_row": 67,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0067",
+      "source_row": 68,
+      "los_category": "ended",
+      "los_days": 213
+    },
+    {
+      "resident_id": "HV-0068",
+      "source_row": 69,
+      "los_category": "ended",
+      "los_days": 52
+    },
+    {
+      "resident_id": "HV-0069",
+      "source_row": 70,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0070",
+      "source_row": 71,
+      "los_category": "ended",
+      "los_days": 9
+    },
+    {
+      "resident_id": "HV-0071",
+      "source_row": 72,
+      "los_category": "ended",
+      "los_days": 25
+    },
+    {
+      "resident_id": "HV-0072",
+      "source_row": 73,
+      "los_category": "unknown_exit",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0073",
+      "source_row": 74,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0074",
+      "source_row": 75,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0075",
+      "source_row": 76,
+      "los_category": "ended",
+      "los_days": 163
+    },
+    {
+      "resident_id": "HV-0076",
+      "source_row": 77,
+      "los_category": "ended",
+      "los_days": 131
+    },
+    {
+      "resident_id": "HV-0077",
+      "source_row": 78,
+      "los_category": "ended",
+      "los_days": 14
+    },
+    {
+      "resident_id": "HV-0078",
+      "source_row": 79,
+      "los_category": "ended",
+      "los_days": 52
+    },
+    {
+      "resident_id": "HV-0079",
+      "source_row": 80,
+      "los_category": "ended",
+      "los_days": 145
+    },
+    {
+      "resident_id": "HV-0080",
+      "source_row": 81,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0081",
+      "source_row": 82,
+      "los_category": "ended",
+      "los_days": 117
+    },
+    {
+      "resident_id": "HV-0082",
+      "source_row": 83,
+      "los_category": "ended",
+      "los_days": 12
+    },
+    {
+      "resident_id": "HV-0083",
+      "source_row": 84,
+      "los_category": "ended",
+      "los_days": 47
+    },
+    {
+      "resident_id": "HV-0084",
+      "source_row": 85,
+      "los_category": "ended",
+      "los_days": 89
+    },
+    {
+      "resident_id": "HV-0085",
+      "source_row": 86,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0086",
+      "source_row": 87,
+      "los_category": "ended",
+      "los_days": 154
+    },
+    {
+      "resident_id": "HV-0087",
+      "source_row": 88,
+      "los_category": "ended",
+      "los_days": 44
+    },
+    {
+      "resident_id": "HV-0088",
+      "source_row": 89,
+      "los_category": "ended",
+      "los_days": 135
+    },
+    {
+      "resident_id": "HV-0089",
+      "source_row": 90,
+      "los_category": "ended",
+      "los_days": 29
+    },
+    {
+      "resident_id": "HV-0090",
+      "source_row": 91,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0091",
+      "source_row": 92,
+      "los_category": "ended",
+      "los_days": 95
+    },
+    {
+      "resident_id": "HV-0092",
+      "source_row": 93,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0093",
+      "source_row": 94,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0094",
+      "source_row": 95,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0095",
+      "source_row": 96,
+      "los_category": "ended",
+      "los_days": 219
+    },
+    {
+      "resident_id": "HV-0096",
+      "source_row": 97,
+      "los_category": "ended",
+      "los_days": 79
+    },
+    {
+      "resident_id": "HV-0097",
+      "source_row": 98,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0098",
+      "source_row": 99,
+      "los_category": "ended",
+      "los_days": 124
+    },
+    {
+      "resident_id": "HV-0099",
+      "source_row": 100,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0100",
+      "source_row": 101,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0101",
+      "source_row": 102,
+      "los_category": "ended",
+      "los_days": 33
+    },
+    {
+      "resident_id": "HV-0102",
+      "source_row": 103,
+      "los_category": "ended",
+      "los_days": 188
+    },
+    {
+      "resident_id": "HV-0103",
+      "source_row": 104,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0104",
+      "source_row": 105,
+      "los_category": "ended",
+      "los_days": 72
+    },
+    {
+      "resident_id": "HV-0105",
+      "source_row": 106,
+      "los_category": "ended",
+      "los_days": 87
+    },
+    {
+      "resident_id": "HV-0106",
+      "source_row": 107,
+      "los_category": "ended",
+      "los_days": 83
+    },
+    {
+      "resident_id": "HV-0107",
+      "source_row": 108,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0108",
+      "source_row": 109,
+      "los_category": "ended",
+      "los_days": 105
+    },
+    {
+      "resident_id": "HV-0109",
+      "source_row": 110,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0110",
+      "source_row": 111,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0111",
+      "source_row": 112,
+      "los_category": "ended",
+      "los_days": 110
+    },
+    {
+      "resident_id": "HV-0112",
+      "source_row": 113,
+      "los_category": "ended",
+      "los_days": 194
+    },
+    {
+      "resident_id": "HV-0113",
+      "source_row": 114,
+      "los_category": "ended",
+      "los_days": 33
+    },
+    {
+      "resident_id": "HV-0114",
+      "source_row": 115,
+      "los_category": "ended",
+      "los_days": 84
+    },
+    {
+      "resident_id": "HV-0115",
+      "source_row": 116,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0116",
+      "source_row": 117,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0117",
+      "source_row": 118,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0118",
+      "source_row": 119,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0119",
+      "source_row": 120,
+      "los_category": "ended",
+      "los_days": 108
+    },
+    {
+      "resident_id": "HV-0120",
+      "source_row": 121,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0121",
+      "source_row": 122,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0122",
+      "source_row": 123,
+      "los_category": "ended",
+      "los_days": 62
+    },
+    {
+      "resident_id": "HV-0123",
+      "source_row": 124,
+      "los_category": "ended",
+      "los_days": 120
+    },
+    {
+      "resident_id": "HV-0124",
+      "source_row": 125,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0125",
+      "source_row": 126,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0126",
+      "source_row": 127,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0127",
+      "source_row": 128,
+      "los_category": "ended",
+      "los_days": 13
+    },
+    {
+      "resident_id": "HV-0128",
+      "source_row": 129,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0129",
+      "source_row": 130,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0130",
+      "source_row": 131,
+      "los_category": "ended",
+      "los_days": 26
+    },
+    {
+      "resident_id": "HV-0131",
+      "source_row": 132,
+      "los_category": "ended",
+      "los_days": 130
+    },
+    {
+      "resident_id": "HV-0132",
+      "source_row": 133,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0133",
+      "source_row": 134,
+      "los_category": "ongoing",
+      "los_days": 133
+    },
+    {
+      "resident_id": "HV-0134",
+      "source_row": 135,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0135",
+      "source_row": 136,
+      "los_category": "ongoing",
+      "los_days": 161
+    },
+    {
+      "resident_id": "HV-0136",
+      "source_row": 137,
+      "los_category": "unknown_exit",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0137",
+      "source_row": 138,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0138",
+      "source_row": 139,
+      "los_category": "ongoing",
+      "los_days": 158
+    },
+    {
+      "resident_id": "HV-0139",
+      "source_row": 140,
+      "los_category": "ended",
+      "los_days": 49
+    },
+    {
+      "resident_id": "HV-0140",
+      "source_row": 141,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0141",
+      "source_row": 142,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0142",
+      "source_row": 143,
+      "los_category": "ended",
+      "los_days": 95
+    },
+    {
+      "resident_id": "HV-0143",
+      "source_row": 144,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0144",
+      "source_row": 145,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0145",
+      "source_row": 146,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0146",
+      "source_row": 147,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0147",
+      "source_row": 148,
+      "los_category": "ended",
+      "los_days": 128
+    },
+    {
+      "resident_id": "HV-0148",
+      "source_row": 149,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0149",
+      "source_row": 150,
+      "los_category": "ended",
+      "los_days": 114
+    },
+    {
+      "resident_id": "HV-0150",
+      "source_row": 151,
+      "los_category": "ongoing",
+      "los_days": 123
+    },
+    {
+      "resident_id": "HV-0151",
+      "source_row": 152,
+      "los_category": "ongoing",
+      "los_days": 121
+    },
+    {
+      "resident_id": "HV-0152",
+      "source_row": 153,
+      "los_category": "ended",
+      "los_days": 45
+    },
+    {
+      "resident_id": "HV-0153",
+      "source_row": 154,
+      "los_category": "ended",
+      "los_days": 29
+    },
+    {
+      "resident_id": "HV-0154",
+      "source_row": 155,
+      "los_category": "ended",
+      "los_days": 97
+    },
+    {
+      "resident_id": "HV-0155",
+      "source_row": 156,
+      "los_category": "ended",
+      "los_days": 36
+    },
+    {
+      "resident_id": "HV-0156",
+      "source_row": 157,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0157",
+      "source_row": 158,
+      "los_category": "ended",
+      "los_days": 71
+    },
+    {
+      "resident_id": "HV-0158",
+      "source_row": 159,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0159",
+      "source_row": 160,
+      "los_category": "ended",
+      "los_days": 32
+    },
+    {
+      "resident_id": "HV-0160",
+      "source_row": 161,
+      "los_category": "ongoing",
+      "los_days": 65
+    },
+    {
+      "resident_id": "HV-0161",
+      "source_row": 162,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0162",
+      "source_row": 163,
+      "los_category": "ongoing",
+      "los_days": 86
+    },
+    {
+      "resident_id": "HV-0163",
+      "source_row": 164,
+      "los_category": "ended",
+      "los_days": 96
+    },
+    {
+      "resident_id": "HV-0164",
+      "source_row": 165,
+      "los_category": "ended",
+      "los_days": 35
+    },
+    {
+      "resident_id": "HV-0165",
+      "source_row": 166,
+      "los_category": "ended",
+      "los_days": 48
+    },
+    {
+      "resident_id": "HV-0166",
+      "source_row": 167,
+      "los_category": "ended",
+      "los_days": 46
+    },
+    {
+      "resident_id": "HV-0167",
+      "source_row": 168,
+      "los_category": "ended",
+      "los_days": 50
+    },
+    {
+      "resident_id": "HV-0168",
+      "source_row": 169,
+      "los_category": "ongoing",
+      "los_days": 92
+    },
+    {
+      "resident_id": "HV-0169",
+      "source_row": 170,
+      "los_category": "ongoing",
+      "los_days": 75
+    },
+    {
+      "resident_id": "HV-0170",
+      "source_row": 171,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0171",
+      "source_row": 172,
+      "los_category": "ended",
+      "los_days": 25
+    },
+    {
+      "resident_id": "HV-0172",
+      "source_row": 173,
+      "los_category": "ongoing",
+      "los_days": 59
+    },
+    {
+      "resident_id": "HV-0173",
+      "source_row": 174,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0174",
+      "source_row": 175,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0175",
+      "source_row": 176,
+      "los_category": "ongoing",
+      "los_days": 73
+    },
+    {
+      "resident_id": "HV-0176",
+      "source_row": 177,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0177",
+      "source_row": 178,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0178",
+      "source_row": 179,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0179",
+      "source_row": 180,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0180",
+      "source_row": 181,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0181",
+      "source_row": 182,
+      "los_category": "ongoing",
+      "los_days": 26
+    },
+    {
+      "resident_id": "HV-0182",
+      "source_row": 183,
+      "los_category": "ongoing",
+      "los_days": 9
+    },
+    {
+      "resident_id": "HV-0183",
+      "source_row": 184,
+      "los_category": "ongoing",
+      "los_days": 41
+    },
+    {
+      "resident_id": "HV-0184",
+      "source_row": 185,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0185",
+      "source_row": 186,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0186",
+      "source_row": 187,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0187",
+      "source_row": 188,
+      "los_category": "ended",
+      "los_days": 34
+    },
+    {
+      "resident_id": "HV-0188",
+      "source_row": 189,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0189",
+      "source_row": 190,
+      "los_category": "ongoing",
+      "los_days": 34
+    },
+    {
+      "resident_id": "HV-0190",
+      "source_row": 191,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0191",
+      "source_row": 192,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0192",
+      "source_row": 193,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0193",
+      "source_row": 194,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0194",
+      "source_row": 195,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0195",
+      "source_row": 196,
+      "los_category": "ongoing",
+      "los_days": 4
+    },
+    {
+      "resident_id": "HV-0196",
+      "source_row": 197,
+      "los_category": "ongoing",
+      "los_days": 5
+    },
+    {
+      "resident_id": "HV-0197",
+      "source_row": 198,
+      "los_category": "ongoing",
+      "los_days": 7
+    },
+    {
+      "resident_id": "HV-0198",
+      "source_row": 199,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0199",
+      "source_row": 200,
+      "los_category": "excluded",
+      "los_days": null
+    },
+    {
+      "resident_id": "HV-0200",
+      "source_row": 201,
+      "los_category": "excluded",
+      "los_days": null
+    }
+  ],
+  "followup_detail": [
+    {
+      "resident_id": "HV-0004",
+      "horizon_months": 6,
+      "anchor_date": "2024-10-16",
+      "due_date": "2025-04-16",
+      "recorded_value": "relapse_reported",
+      "analysis_bucket": "relapse_reported"
+    },
+    {
+      "resident_id": "HV-0005",
+      "horizon_months": 6,
+      "anchor_date": "2024-10-05",
+      "due_date": "2025-04-05",
+      "recorded_value": "lost_to_follow_up",
+      "analysis_bucket": "lost_to_follow_up"
+    },
+    {
+      "resident_id": "HV-0006",
+      "horizon_months": 6,
+      "anchor_date": "2024-09-10",
+      "due_date": "2025-03-10",
+      "recorded_value": "relapse_reported",
+      "analysis_bucket": "relapse_reported"
+    },
+    {
+      "resident_id": "HV-0007",
+      "horizon_months": 6,
+      "anchor_date": "2025-04-29",
+      "due_date": "2025-10-29",
+      "recorded_value": "engaged_in_recovery",
+      "analysis_bucket": "engaged_in_recovery"
+    },
+    {
+      "resident_id": "HV-0009",
+      "horizon_months": 6,
+      "anchor_date": "2024-09-09",
+      "due_date": "2025-03-09",
+      "recorded_value": "engaged_in_recovery",
+      "analysis_bucket": "engaged_in_recovery"
+    },
+    {
+      "resident_id": "HV-0011",
+      "horizon_months": 6,
+      "anchor_date": "2024-09-26",
+      "due_date": "2025-03-26",
+      "recorded_value": "lost_to_follow_up",
+      "analysis_bucket": "lost_to_follow_up"
+    },
+    {
+      "resident_id": "HV-0012",
+      "horizon_months": 6,
+      "anchor_date": "2025-03-31",
+      "due_date": "2025-09-30",
+      "recorded_value": "relapse_reported",
+      "analysis_bucket": "relapse_reported"
+    },
+    {
+      "resident_id": "HV-0014",
+      "horizon_months": 6,
+      "anchor_date": "2025-02-06",
+      "due_date": "2025-08-06",
+      "recorded_value": "engaged_in_recovery",
+      "analysis_bucket": "engaged_in_recovery"
+    },
+    {
+      "resident_id": "HV-0015",
+      "horizon_months": 6,
+      "anchor_date": "2024-12-16",
+      "due_date": "2025-06-16",
+      "recorded_value": "engaged_in_recovery",
+      "analysis_bucket": "engaged_in_recovery"
+    },
+    {
+      "resident_id": "HV-0018",
+      "horizon_months": 6,
+      "anchor_date": "2025-01-05",
+      "due_date": "2025-07-05",
+      "recorded_value": "",
+      "analysis_bucket": "missing"
+    },
+    {
+      "resident_id": "HV-0019",
+      "horizon_months": 6,
+      "anchor_date": "2025-01-13",
+      "due_date": "2025-07-13",
+      "recorded_value": "unknown",
+      "analysis_bucket": "unknown"
+    },
+    {
+      "resident_id": "HV-0023",
+      "horizon_months": 6,
+      "anchor_date": "2025-01-19",
+      "due_date": "2025-07-19",
+      "recorded_value": "engaged_in_recovery",
+      "analysis_bucket": "engaged_in_recovery"
+    },
+    {
+      "resident_id": "HV-0025",
+      "horizon_months": 6,
+      "anchor_date": "2025-03-24",
+      "due_date": "2025-09-24",
+      "recorded_value": "engaged_in_recovery",
+      "analysis_bucket": "engaged_in_recovery"
+    },
+    {
+      "resident_id": "HV-0027",
+      "horizon_months": 6,
+      "anchor_date": "2025-04-15",
+      "due_date": "2025-10-15",
+      "recorded_value": "engaged_in_recovery",
+      "analysis_bucket": "engaged_in_recovery"
+    },
+    {
+      "resident_id": "HV-0028",
+      "horizon_months": 6,
+      "anchor_date": "2025-02-11",
+      "due_date": "2025-08-11",
+      "recorded_value": "relapse_reported",
+      "analysis_bucket": "relapse_reported"
+    },
+    {
+      "resident_id": "HV-0029",
+      "horizon_months": 6,
+      "anchor_date": "2025-05-01",
+      "due_date": "2025-11-01",
+      "recorded_value": "engaged_in_recovery",
+      "analysis_bucket": "engaged_in_recovery"
+    },
+    {
+      "resident_id": "HV-0030",
+      "horizon_months": 6,
+      "anchor_date": "2025-03-30",
+      "due_date": "2025-09-30",
+      "recorded_value": "lost_to_follow_up",
+      "analysis_bucket": "lost_to_follow_up"
+    },
+    {
+      "resident_id": "HV-0031",
+      "horizon_months": 6,
+      "anchor_date": null,
+      "due_date": null,
+      "recorded_value": "unknown",
+      "analysis_bucket": "eligibility_unknown"
+    },
+    {
+      "resident_id": "HV-0034",
+      "horizon_months": 6,
+      "anchor_date": "2024-11-28",
+      "due_date": "2025-05-28",
+      "recorded_value": "lost_to_follow_up",
+      "analysis_bucket": "lost_to_follow_up"
+    },
+    {
+      "resident_id": "HV-0035",
+      "horizon_months": 6,
+      "anchor_date": "2025-05-29",
+      "due_date": "2025-11-29",
+      "recorded_value": "engaged_in_recovery",
+      "analysis_bucket": "engaged_in_recovery"
+    },
+    {
+      "resident_id": "HV-0036",
+      "horizon_months": 6,
+      "anchor_date": "2025-02-27",
+      "due_date": "2025-08-27",
+      "recorded_value": "unknown",
+      "analysis_bucket": "unknown"
+    },
+    {
+      "resident_id": "HV-0038",
+      "horizon_months": 6,
+      "anchor_date": "2024-11-28",
+      "due_date": "2025-05-28",
+      "recorded_value": "lost_to_follow_up",
+      "analysis_bucket": "lost_to_follow_up"
+    },
+    {
+      "resident_id": "HV-0039",
+      "horizon_months": 6,
+      "anchor_date": "2025-02-05",
+      "due_date": "2025-08-05",
+      "recorded_value": "engaged_in_recovery",
+      "analysis_bucket": "engaged_in_recovery"
+    },
+    {
+      "resident_id": "HV-0040",
+      "horizon_months": 6,
+      "anchor_date": "2025-01-15",
+      "due_date": "2025-07-15",
+      "recorded_value": "relapse_reported",
+      "analysis_bucket": "relapse_reported"
+    },
+    {
+      "resident_id": "HV-0041",
+      "horizon_months": 6,
+      "anchor_date": "2025-01-31",
+      "due_date": "2025-07-31",
+      "recorded_value": "engaged_in_recovery",
+      "analysis_bucket": "engaged_in_recovery"
+    },
+    {
+      "resident_id": "HV-0042",
+      "horizon_months": 6,
+      "anchor_date": "2025-05-07",
+      "due_date": "2025-11-07",
+      "recorded_value": "engaged_in_recovery",
+      "analysis_bucket": "engaged_in_recovery"
+    },
+    {
+      "resident_id": "HV-0043",
+      "horizon_months": 6,
+      "anchor_date": "2025-05-26",
+      "due_date": "2025-11-26",
+      "recorded_value": "engaged_in_recovery",
+      "analysis_bucket": "engaged_in_recovery"
+    },
+    {
+      "resident_id": "HV-0048",
+      "horizon_months": 6,
+      "anchor_date": "2025-03-18",
+      "due_date": "2025-09-18",
+      "recorded_value": "lost_to_follow_up",
+      "analysis_bucket": "lost_to_follow_up"
+    },
+    {
+      "resident_id": "HV-0049",
+      "horizon_months": 6,
+      "anchor_date": "2025-03-05",
+      "due_date": "2025-09-05",
+      "recorded_value": "engaged_in_recovery",
+      "analysis_bucket": "engaged_in_recovery"
+    },
+    {
+      "resident_id": "HV-0050",
+      "horizon_months": 6,
+      "anchor_date": "2025-06-02",
+      "due_date": "2025-12-02",
+      "recorded_value": "engaged_in_recovery",
+      "analysis_bucket": "engaged_in_recovery"
+    },
+    {
+      "resident_id": "HV-0053",
+      "horizon_months": 6,
+      "anchor_date": "2025-03-25",
+      "due_date": "2025-09-25",
+      "recorded_value": "lost_to_follow_up",
+      "analysis_bucket": "lost_to_follow_up"
+    },
+    {
+      "resident_id": "HV-0054",
+      "horizon_months": 6,
+      "anchor_date": "2025-07-19",
+      "due_date": "2026-01-19",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0056",
+      "horizon_months": 6,
+      "anchor_date": "2025-05-02",
+      "due_date": "2025-11-02",
+      "recorded_value": "engaged_in_recovery",
+      "analysis_bucket": "engaged_in_recovery"
+    },
+    {
+      "resident_id": "HV-0060",
+      "horizon_months": 6,
+      "anchor_date": "2025-03-09",
+      "due_date": "2025-09-09",
+      "recorded_value": "engaged_in_recovery",
+      "analysis_bucket": "engaged_in_recovery"
+    },
+    {
+      "resident_id": "HV-0064",
+      "horizon_months": 6,
+      "anchor_date": "2025-05-28",
+      "due_date": "2025-11-28",
+      "recorded_value": "engaged_in_recovery",
+      "analysis_bucket": "engaged_in_recovery"
+    },
+    {
+      "resident_id": "HV-0067",
+      "horizon_months": 6,
+      "anchor_date": "2025-08-30",
+      "due_date": "2026-02-28",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0068",
+      "horizon_months": 6,
+      "anchor_date": "2025-03-22",
+      "due_date": "2025-09-22",
+      "recorded_value": "lost_to_follow_up",
+      "analysis_bucket": "lost_to_follow_up"
+    },
+    {
+      "resident_id": "HV-0070",
+      "horizon_months": 6,
+      "anchor_date": "2025-04-04",
+      "due_date": "2025-10-04",
+      "recorded_value": "lost_to_follow_up",
+      "analysis_bucket": "lost_to_follow_up"
+    },
+    {
+      "resident_id": "HV-0071",
+      "horizon_months": 6,
+      "anchor_date": "2025-03-25",
+      "due_date": "2025-09-25",
+      "recorded_value": "",
+      "analysis_bucket": "missing"
+    },
+    {
+      "resident_id": "HV-0072",
+      "horizon_months": 6,
+      "anchor_date": null,
+      "due_date": null,
+      "recorded_value": "lost_to_follow_up",
+      "analysis_bucket": "eligibility_unknown"
+    },
+    {
+      "resident_id": "HV-0075",
+      "horizon_months": 6,
+      "anchor_date": "2025-08-10",
+      "due_date": "2026-02-10",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0076",
+      "horizon_months": 6,
+      "anchor_date": "2025-07-07",
+      "due_date": "2026-01-07",
+      "recorded_value": "",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0077",
+      "horizon_months": 6,
+      "anchor_date": "2025-04-06",
+      "due_date": "2025-10-06",
+      "recorded_value": "lost_to_follow_up",
+      "analysis_bucket": "lost_to_follow_up"
+    },
+    {
+      "resident_id": "HV-0078",
+      "horizon_months": 6,
+      "anchor_date": "2025-05-08",
+      "due_date": "2025-11-08",
+      "recorded_value": "relapse_reported",
+      "analysis_bucket": "relapse_reported"
+    },
+    {
+      "resident_id": "HV-0079",
+      "horizon_months": 6,
+      "anchor_date": "2025-08-18",
+      "due_date": "2026-02-18",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0081",
+      "horizon_months": 6,
+      "anchor_date": "2025-07-01",
+      "due_date": "2026-01-01",
+      "recorded_value": "relapse_reported",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0082",
+      "horizon_months": 6,
+      "anchor_date": "2025-04-06",
+      "due_date": "2025-10-06",
+      "recorded_value": "engaged_in_recovery",
+      "analysis_bucket": "engaged_in_recovery"
+    },
+    {
+      "resident_id": "HV-0083",
+      "horizon_months": 6,
+      "anchor_date": "2025-04-26",
+      "due_date": "2025-10-26",
+      "recorded_value": "",
+      "analysis_bucket": "missing"
+    },
+    {
+      "resident_id": "HV-0084",
+      "horizon_months": 6,
+      "anchor_date": "2025-06-28",
+      "due_date": "2025-12-28",
+      "recorded_value": "engaged_in_recovery",
+      "analysis_bucket": "engaged_in_recovery"
+    },
+    {
+      "resident_id": "HV-0086",
+      "horizon_months": 6,
+      "anchor_date": "2025-09-13",
+      "due_date": "2026-03-13",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0087",
+      "horizon_months": 6,
+      "anchor_date": "2025-05-15",
+      "due_date": "2025-11-15",
+      "recorded_value": "lost_to_follow_up",
+      "analysis_bucket": "lost_to_follow_up"
+    },
+    {
+      "resident_id": "HV-0088",
+      "horizon_months": 6,
+      "anchor_date": "2025-08-01",
+      "due_date": "2026-02-01",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0089",
+      "horizon_months": 6,
+      "anchor_date": "2025-05-06",
+      "due_date": "2025-11-06",
+      "recorded_value": "lost_to_follow_up",
+      "analysis_bucket": "lost_to_follow_up"
+    },
+    {
+      "resident_id": "HV-0091",
+      "horizon_months": 6,
+      "anchor_date": "2025-08-06",
+      "due_date": "2026-02-06",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0095",
+      "horizon_months": 6,
+      "anchor_date": "2025-11-10",
+      "due_date": "2026-05-10",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0096",
+      "horizon_months": 6,
+      "anchor_date": "2025-06-25",
+      "due_date": "2025-12-25",
+      "recorded_value": "lost_to_follow_up",
+      "analysis_bucket": "lost_to_follow_up"
+    },
+    {
+      "resident_id": "HV-0098",
+      "horizon_months": 6,
+      "anchor_date": "2025-08-18",
+      "due_date": "2026-02-18",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0101",
+      "horizon_months": 6,
+      "anchor_date": "2025-06-02",
+      "due_date": "2025-12-02",
+      "recorded_value": "engaged_in_recovery",
+      "analysis_bucket": "engaged_in_recovery"
+    },
+    {
+      "resident_id": "HV-0102",
+      "horizon_months": 6,
+      "anchor_date": "2025-11-01",
+      "due_date": "2026-05-01",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0104",
+      "horizon_months": 6,
+      "anchor_date": "2025-08-07",
+      "due_date": "2026-02-07",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0105",
+      "horizon_months": 6,
+      "anchor_date": "2025-07-28",
+      "due_date": "2026-01-28",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0106",
+      "horizon_months": 6,
+      "anchor_date": "2025-07-29",
+      "due_date": "2026-01-29",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0108",
+      "horizon_months": 6,
+      "anchor_date": "2025-08-24",
+      "due_date": "2026-02-24",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0111",
+      "horizon_months": 6,
+      "anchor_date": "2025-08-29",
+      "due_date": "2026-02-28",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0112",
+      "horizon_months": 6,
+      "anchor_date": "2025-12-09",
+      "due_date": "2026-06-09",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0113",
+      "horizon_months": 6,
+      "anchor_date": "2025-07-02",
+      "due_date": "2026-01-02",
+      "recorded_value": "lost_to_follow_up",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0114",
+      "horizon_months": 6,
+      "anchor_date": "2025-08-08",
+      "due_date": "2026-02-08",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0119",
+      "horizon_months": 6,
+      "anchor_date": "2025-10-16",
+      "due_date": "2026-04-16",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0122",
+      "horizon_months": 6,
+      "anchor_date": "2025-08-19",
+      "due_date": "2026-02-19",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0123",
+      "horizon_months": 6,
+      "anchor_date": "2025-10-18",
+      "due_date": "2026-04-18",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0127",
+      "horizon_months": 6,
+      "anchor_date": "2025-07-13",
+      "due_date": "2026-01-13",
+      "recorded_value": "relapse_reported",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0130",
+      "horizon_months": 6,
+      "anchor_date": "2025-08-12",
+      "due_date": "2026-02-12",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0131",
+      "horizon_months": 6,
+      "anchor_date": "2025-11-26",
+      "due_date": "2026-05-26",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0136",
+      "horizon_months": 6,
+      "anchor_date": null,
+      "due_date": null,
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "eligibility_unknown"
+    },
+    {
+      "resident_id": "HV-0139",
+      "horizon_months": 6,
+      "anchor_date": "2025-09-18",
+      "due_date": "2026-03-18",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0142",
+      "horizon_months": 6,
+      "anchor_date": "2025-11-01",
+      "due_date": "2026-05-01",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0147",
+      "horizon_months": 6,
+      "anchor_date": "2025-12-30",
+      "due_date": "2026-06-30",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0149",
+      "horizon_months": 6,
+      "anchor_date": "2025-12-12",
+      "due_date": "2026-06-12",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0152",
+      "horizon_months": 6,
+      "anchor_date": "2025-10-28",
+      "due_date": "2026-04-28",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0153",
+      "horizon_months": 6,
+      "anchor_date": "2025-10-05",
+      "due_date": "2026-04-05",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0154",
+      "horizon_months": 6,
+      "anchor_date": "2025-12-18",
+      "due_date": "2026-06-18",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0155",
+      "horizon_months": 6,
+      "anchor_date": "2025-10-17",
+      "due_date": "2026-04-17",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0157",
+      "horizon_months": 6,
+      "anchor_date": "2025-11-25",
+      "due_date": "2026-05-25",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0159",
+      "horizon_months": 6,
+      "anchor_date": "2025-10-26",
+      "due_date": "2026-04-26",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0163",
+      "horizon_months": 6,
+      "anchor_date": "2025-12-26",
+      "due_date": "2026-06-26",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0164",
+      "horizon_months": 6,
+      "anchor_date": "2025-12-03",
+      "due_date": "2026-06-03",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0165",
+      "horizon_months": 6,
+      "anchor_date": "2025-11-06",
+      "due_date": "2026-05-06",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0166",
+      "horizon_months": 6,
+      "anchor_date": "2025-12-18",
+      "due_date": "2026-06-18",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0167",
+      "horizon_months": 6,
+      "anchor_date": "2025-11-10",
+      "due_date": "2026-05-10",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0171",
+      "horizon_months": 6,
+      "anchor_date": "2025-11-12",
+      "due_date": "2026-05-12",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0187",
+      "horizon_months": 6,
+      "anchor_date": "2025-12-31",
+      "due_date": "2026-06-30",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0004",
+      "horizon_months": 12,
+      "anchor_date": "2024-10-16",
+      "due_date": "2025-10-16",
+      "recorded_value": "relapse_reported",
+      "analysis_bucket": "relapse_reported"
+    },
+    {
+      "resident_id": "HV-0005",
+      "horizon_months": 12,
+      "anchor_date": "2024-10-05",
+      "due_date": "2025-10-05",
+      "recorded_value": "lost_to_follow_up",
+      "analysis_bucket": "lost_to_follow_up"
+    },
+    {
+      "resident_id": "HV-0006",
+      "horizon_months": 12,
+      "anchor_date": "2024-09-10",
+      "due_date": "2025-09-10",
+      "recorded_value": "relapse_reported",
+      "analysis_bucket": "relapse_reported"
+    },
+    {
+      "resident_id": "HV-0007",
+      "horizon_months": 12,
+      "anchor_date": "2025-04-29",
+      "due_date": "2026-04-29",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0009",
+      "horizon_months": 12,
+      "anchor_date": "2024-09-09",
+      "due_date": "2025-09-09",
+      "recorded_value": "lost_to_follow_up",
+      "analysis_bucket": "lost_to_follow_up"
+    },
+    {
+      "resident_id": "HV-0011",
+      "horizon_months": 12,
+      "anchor_date": "2024-09-26",
+      "due_date": "2025-09-26",
+      "recorded_value": "lost_to_follow_up",
+      "analysis_bucket": "lost_to_follow_up"
+    },
+    {
+      "resident_id": "HV-0012",
+      "horizon_months": 12,
+      "anchor_date": "2025-03-31",
+      "due_date": "2026-03-31",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0014",
+      "horizon_months": 12,
+      "anchor_date": "2025-02-06",
+      "due_date": "2026-02-06",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0015",
+      "horizon_months": 12,
+      "anchor_date": "2024-12-16",
+      "due_date": "2025-12-16",
+      "recorded_value": "engaged_in_recovery",
+      "analysis_bucket": "engaged_in_recovery"
+    },
+    {
+      "resident_id": "HV-0018",
+      "horizon_months": 12,
+      "anchor_date": "2025-01-05",
+      "due_date": "2026-01-05",
+      "recorded_value": "lost_to_follow_up",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0019",
+      "horizon_months": 12,
+      "anchor_date": "2025-01-13",
+      "due_date": "2026-01-13",
+      "recorded_value": "unknown",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0023",
+      "horizon_months": 12,
+      "anchor_date": "2025-01-19",
+      "due_date": "2026-01-19",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0025",
+      "horizon_months": 12,
+      "anchor_date": "2025-03-24",
+      "due_date": "2026-03-24",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0027",
+      "horizon_months": 12,
+      "anchor_date": "2025-04-15",
+      "due_date": "2026-04-15",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0028",
+      "horizon_months": 12,
+      "anchor_date": "2025-02-11",
+      "due_date": "2026-02-11",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0029",
+      "horizon_months": 12,
+      "anchor_date": "2025-05-01",
+      "due_date": "2026-05-01",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0030",
+      "horizon_months": 12,
+      "anchor_date": "2025-03-30",
+      "due_date": "2026-03-30",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0031",
+      "horizon_months": 12,
+      "anchor_date": null,
+      "due_date": null,
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "eligibility_unknown"
+    },
+    {
+      "resident_id": "HV-0034",
+      "horizon_months": 12,
+      "anchor_date": "2024-11-28",
+      "due_date": "2025-11-28",
+      "recorded_value": "lost_to_follow_up",
+      "analysis_bucket": "lost_to_follow_up"
+    },
+    {
+      "resident_id": "HV-0035",
+      "horizon_months": 12,
+      "anchor_date": "2025-05-29",
+      "due_date": "2026-05-29",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0036",
+      "horizon_months": 12,
+      "anchor_date": "2025-02-27",
+      "due_date": "2026-02-27",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0038",
+      "horizon_months": 12,
+      "anchor_date": "2024-11-28",
+      "due_date": "2025-11-28",
+      "recorded_value": "lost_to_follow_up",
+      "analysis_bucket": "lost_to_follow_up"
+    },
+    {
+      "resident_id": "HV-0039",
+      "horizon_months": 12,
+      "anchor_date": "2025-02-05",
+      "due_date": "2026-02-05",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0040",
+      "horizon_months": 12,
+      "anchor_date": "2025-01-15",
+      "due_date": "2026-01-15",
+      "recorded_value": "lost_to_follow_up",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0041",
+      "horizon_months": 12,
+      "anchor_date": "2025-01-31",
+      "due_date": "2026-01-31",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0042",
+      "horizon_months": 12,
+      "anchor_date": "2025-05-07",
+      "due_date": "2026-05-07",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0043",
+      "horizon_months": 12,
+      "anchor_date": "2025-05-26",
+      "due_date": "2026-05-26",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0048",
+      "horizon_months": 12,
+      "anchor_date": "2025-03-18",
+      "due_date": "2026-03-18",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0049",
+      "horizon_months": 12,
+      "anchor_date": "2025-03-05",
+      "due_date": "2026-03-05",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0050",
+      "horizon_months": 12,
+      "anchor_date": "2025-06-02",
+      "due_date": "2026-06-02",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0053",
+      "horizon_months": 12,
+      "anchor_date": "2025-03-25",
+      "due_date": "2026-03-25",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0054",
+      "horizon_months": 12,
+      "anchor_date": "2025-07-19",
+      "due_date": "2026-07-19",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0056",
+      "horizon_months": 12,
+      "anchor_date": "2025-05-02",
+      "due_date": "2026-05-02",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0060",
+      "horizon_months": 12,
+      "anchor_date": "2025-03-09",
+      "due_date": "2026-03-09",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0064",
+      "horizon_months": 12,
+      "anchor_date": "2025-05-28",
+      "due_date": "2026-05-28",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0067",
+      "horizon_months": 12,
+      "anchor_date": "2025-08-30",
+      "due_date": "2026-08-30",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0068",
+      "horizon_months": 12,
+      "anchor_date": "2025-03-22",
+      "due_date": "2026-03-22",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0070",
+      "horizon_months": 12,
+      "anchor_date": "2025-04-04",
+      "due_date": "2026-04-04",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0071",
+      "horizon_months": 12,
+      "anchor_date": "2025-03-25",
+      "due_date": "2026-03-25",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0072",
+      "horizon_months": 12,
+      "anchor_date": null,
+      "due_date": null,
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "eligibility_unknown"
+    },
+    {
+      "resident_id": "HV-0075",
+      "horizon_months": 12,
+      "anchor_date": "2025-08-10",
+      "due_date": "2026-08-10",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0076",
+      "horizon_months": 12,
+      "anchor_date": "2025-07-07",
+      "due_date": "2026-07-07",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0077",
+      "horizon_months": 12,
+      "anchor_date": "2025-04-06",
+      "due_date": "2026-04-06",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0078",
+      "horizon_months": 12,
+      "anchor_date": "2025-05-08",
+      "due_date": "2026-05-08",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0079",
+      "horizon_months": 12,
+      "anchor_date": "2025-08-18",
+      "due_date": "2026-08-18",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0081",
+      "horizon_months": 12,
+      "anchor_date": "2025-07-01",
+      "due_date": "2026-07-01",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0082",
+      "horizon_months": 12,
+      "anchor_date": "2025-04-06",
+      "due_date": "2026-04-06",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0083",
+      "horizon_months": 12,
+      "anchor_date": "2025-04-26",
+      "due_date": "2026-04-26",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0084",
+      "horizon_months": 12,
+      "anchor_date": "2025-06-28",
+      "due_date": "2026-06-28",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0086",
+      "horizon_months": 12,
+      "anchor_date": "2025-09-13",
+      "due_date": "2026-09-13",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0087",
+      "horizon_months": 12,
+      "anchor_date": "2025-05-15",
+      "due_date": "2026-05-15",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0088",
+      "horizon_months": 12,
+      "anchor_date": "2025-08-01",
+      "due_date": "2026-08-01",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0089",
+      "horizon_months": 12,
+      "anchor_date": "2025-05-06",
+      "due_date": "2026-05-06",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0091",
+      "horizon_months": 12,
+      "anchor_date": "2025-08-06",
+      "due_date": "2026-08-06",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0095",
+      "horizon_months": 12,
+      "anchor_date": "2025-11-10",
+      "due_date": "2026-11-10",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0096",
+      "horizon_months": 12,
+      "anchor_date": "2025-06-25",
+      "due_date": "2026-06-25",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0098",
+      "horizon_months": 12,
+      "anchor_date": "2025-08-18",
+      "due_date": "2026-08-18",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0101",
+      "horizon_months": 12,
+      "anchor_date": "2025-06-02",
+      "due_date": "2026-06-02",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0102",
+      "horizon_months": 12,
+      "anchor_date": "2025-11-01",
+      "due_date": "2026-11-01",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0104",
+      "horizon_months": 12,
+      "anchor_date": "2025-08-07",
+      "due_date": "2026-08-07",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0105",
+      "horizon_months": 12,
+      "anchor_date": "2025-07-28",
+      "due_date": "2026-07-28",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0106",
+      "horizon_months": 12,
+      "anchor_date": "2025-07-29",
+      "due_date": "2026-07-29",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0108",
+      "horizon_months": 12,
+      "anchor_date": "2025-08-24",
+      "due_date": "2026-08-24",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0111",
+      "horizon_months": 12,
+      "anchor_date": "2025-08-29",
+      "due_date": "2026-08-29",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0112",
+      "horizon_months": 12,
+      "anchor_date": "2025-12-09",
+      "due_date": "2026-12-09",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0113",
+      "horizon_months": 12,
+      "anchor_date": "2025-07-02",
+      "due_date": "2026-07-02",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0114",
+      "horizon_months": 12,
+      "anchor_date": "2025-08-08",
+      "due_date": "2026-08-08",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0119",
+      "horizon_months": 12,
+      "anchor_date": "2025-10-16",
+      "due_date": "2026-10-16",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0122",
+      "horizon_months": 12,
+      "anchor_date": "2025-08-19",
+      "due_date": "2026-08-19",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0123",
+      "horizon_months": 12,
+      "anchor_date": "2025-10-18",
+      "due_date": "2026-10-18",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0127",
+      "horizon_months": 12,
+      "anchor_date": "2025-07-13",
+      "due_date": "2026-07-13",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0130",
+      "horizon_months": 12,
+      "anchor_date": "2025-08-12",
+      "due_date": "2026-08-12",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0131",
+      "horizon_months": 12,
+      "anchor_date": "2025-11-26",
+      "due_date": "2026-11-26",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0136",
+      "horizon_months": 12,
+      "anchor_date": null,
+      "due_date": null,
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "eligibility_unknown"
+    },
+    {
+      "resident_id": "HV-0139",
+      "horizon_months": 12,
+      "anchor_date": "2025-09-18",
+      "due_date": "2026-09-18",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0142",
+      "horizon_months": 12,
+      "anchor_date": "2025-11-01",
+      "due_date": "2026-11-01",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0147",
+      "horizon_months": 12,
+      "anchor_date": "2025-12-30",
+      "due_date": "2026-12-30",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0149",
+      "horizon_months": 12,
+      "anchor_date": "2025-12-12",
+      "due_date": "2026-12-12",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0152",
+      "horizon_months": 12,
+      "anchor_date": "2025-10-28",
+      "due_date": "2026-10-28",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0153",
+      "horizon_months": 12,
+      "anchor_date": "2025-10-05",
+      "due_date": "2026-10-05",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0154",
+      "horizon_months": 12,
+      "anchor_date": "2025-12-18",
+      "due_date": "2026-12-18",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0155",
+      "horizon_months": 12,
+      "anchor_date": "2025-10-17",
+      "due_date": "2026-10-17",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0157",
+      "horizon_months": 12,
+      "anchor_date": "2025-11-25",
+      "due_date": "2026-11-25",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0159",
+      "horizon_months": 12,
+      "anchor_date": "2025-10-26",
+      "due_date": "2026-10-26",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0163",
+      "horizon_months": 12,
+      "anchor_date": "2025-12-26",
+      "due_date": "2026-12-26",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0164",
+      "horizon_months": 12,
+      "anchor_date": "2025-12-03",
+      "due_date": "2026-12-03",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0165",
+      "horizon_months": 12,
+      "anchor_date": "2025-11-06",
+      "due_date": "2026-11-06",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0166",
+      "horizon_months": 12,
+      "anchor_date": "2025-12-18",
+      "due_date": "2026-12-18",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0167",
+      "horizon_months": 12,
+      "anchor_date": "2025-11-10",
+      "due_date": "2026-11-10",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0171",
+      "horizon_months": 12,
+      "anchor_date": "2025-11-12",
+      "due_date": "2026-11-12",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    },
+    {
+      "resident_id": "HV-0187",
+      "horizon_months": 12,
+      "anchor_date": "2025-12-31",
+      "due_date": "2026-12-31",
+      "recorded_value": "not_yet_due",
+      "analysis_bucket": "not_due"
+    }
+  ]
+}

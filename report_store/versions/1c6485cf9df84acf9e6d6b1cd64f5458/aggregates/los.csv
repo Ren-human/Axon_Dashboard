@@ -1,0 +1,4 @@
+﻿cohort,n,median_days,p90_days,min_days,max_days
+ended_stays,80,95.0,188.60000000000005,9,250
+ongoing_elapsed_stays,18,69.0,140.50000000000003,4,161
+program_completed_subset,40,129.0,213.5,79,250

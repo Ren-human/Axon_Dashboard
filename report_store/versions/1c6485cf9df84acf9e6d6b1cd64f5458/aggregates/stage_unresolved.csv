@@ -1,0 +1,5 @@
+﻿stage,start_observed_n,no_next_milestone_by_cutoff_n,elapsed_n,elapsed_median_days,elapsed_p90_days,elapsed_min_days,elapsed_max_days
+referral_to_intake,141,39,39,185.0,324.0,2,358
+intake_to_admission,102,31,31,164.0,332.0,42,352
+referral_to_admission,141,65,65,181.0,324.0,2,360
+admission_to_discharge,76,20,20,74.0,158.3,4,312
