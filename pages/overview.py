@@ -5,7 +5,7 @@ import streamlit as st
 
 from db import numeric
 from ui import table, value
-from summary_validation import OUTCOME_LABELS, valid_count, outcome_summary, occupancy_summary
+from summary_validation import OUTCOME_LABELS, valid_count, outcome_summary, occupancy_summary, occupancy_label, occupancy_quality_note
 
 
 def load(name, columns=()):
@@ -47,9 +47,7 @@ def make_occupancy(summary):
     view = summary['monthly'].copy()
     dates = pd.to_datetime(view['month'],format='%Y-%m')
     fig = go.Figure()
-    fig.add_scatter(x=dates,y=view['occupancy_lower'],name='Known lower',mode='lines+markers')
-    fig.add_scatter(x=dates,y=view['occupancy_upper'],name='Possible upper',mode='lines+markers',
-                    fill='tonexty',fillcolor='rgba(39,127,142,.12)')
+    fig.add_scatter(x=dates,y=view['occupancy_lower'],name=occupancy_label(summary),mode='lines+markers')
     fig.add_hline(y=1,line_dash='dot',annotation_text='100%',annotation_position='top right')
     fig.update_yaxes(tickformat='.0%',rangemode='tozero')
     fig.update_xaxes(tickformat='%b',dtick='M3')
@@ -93,7 +91,7 @@ def render_overview():
             st.metric('Admission Conversion',value(conversion,percent=True))
             st.caption('Admissions / referrals')
         with k2:
-            st.metric('Known Occupancy Lower Bound',value(average,percent=True))
+            st.metric(occupancy_label(occupancy_info),value(average,percent=True))
             st.caption('Report period · weighted by available bed-days')
             if not occupancy_info:
                 st.warning(occupancy_issue)
@@ -124,6 +122,7 @@ def render_overview():
                     compact_plot(occupancy_fig,'overview_occupancy')
                 else:
                     st.info(occupancy_issue or 'Monthly occupancy unavailable.')
+                st.caption(occupancy_quality_note(occupancy_info))
                 st.page_link('pages/occupancy.py',label='Explore occupancy →')
 
             heading,control = st.columns([1,1],vertical_alignment='center')
@@ -138,9 +137,10 @@ def render_overview():
             st.caption('All due residents remain in the denominator. Engagement is not verified sobriety.')
             st.page_link('pages/outcomes.py',label='Explore outcomes →')
             with st.expander('Definitions & more analysis'):
-                st.write('Occupancy shows known lower / possible upper bounds, not confidence intervals. '
-                         'Unknown exits create the interval; rates above 100% are retained. '
-                         'The report-period KPI uses total known bed-days / total available bed-days.')
+                st.write('Utilization = documented bed-days / available bed-days. '
+                         'The report-period KPI divides total bed-days by total available bed-days. '
+                         'Active stays include the cutoff day; discharge day is excluded. '
+                         'Uncertainty and source limitations are explained in Data Quality.')
                 if occupancy_info:
                     st.caption(f"Occupancy window: {occupancy_info['start']} – {occupancy_info['end']}")
                 st.write('Known follow-up outcomes include engagement in recovery and reported relapse. '

@@ -19,7 +19,7 @@ from numbers import Real
 import sys
 from pathlib import Path
 
-METRICS_VERSION = '1.0.1'
+METRICS_VERSION = '1.0.2'
 
 DATE_COLS = ('referral_date', 'intake_date', 'admission_date', 'discharge_date')
 REQUIRED = ('resident_id', *DATE_COLS, 'current_status', 'discharge_reason',
@@ -270,7 +270,9 @@ def calculate(raw, as_of, capacity=None, anchor='discharge', start=None, fiscal_
             kind, days = 'ongoing', (as_of - a).days
             ongoing.append(days)
             stays.append((a, as_of + timedelta(days=1), False))
-        elif r['current_status'] in ACTIVE:
+        elif r['current_status'] in ACTIVE and not any(
+                x['source_row'] == r['_row'] and x['rule'] == 'INVALID_DISCHARGE_DATE'
+                for x in issues):
             kind, days = 'ongoing', (as_of - a).days
             ongoing.append(days)
             stays.append((a, as_of + timedelta(days=1), False))
@@ -389,7 +391,10 @@ def calculate(raw, as_of, capacity=None, anchor='discharge', start=None, fiscal_
                 'followup_anchor': anchor, 'input_rows': len(raw),
                 'included_unique_residents': len(rows), 'excluded_identity_rows': len(raw) - len(rows),
                 'bed_capacity': capacity, 'source_capacity_values': sorted(capacities),
-                'occupancy_start': first.isoformat(), 'issue_count': len(issues),
+                'occupancy_start': first.isoformat(),
+                'occupancy_method': 'confirmed_stays_v1',
+                'occupancy_unknown_exit_n': sum(u for _, _, u in stays),
+                'issue_count': len(issues),
                 'residents_with_issues': len({x['resident_id'] for x in issues})}
     return {'metadata': metadata, 'observed_milestones': observed, 'funnel': funnel,
             'stage_durations': stages, 'stage_unresolved': stage_unresolved,

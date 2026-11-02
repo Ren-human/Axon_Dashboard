@@ -127,6 +127,24 @@ def occupancy_summary(frame, metadata):
             raise ValueError('a month has no available bed-days; full-period rate withheld')
         known = sum(number(x) for x in work['known_bed_days_lower'])
         return {'rate': known / available if available else float('nan'), 'start': start,
-                'end': end, 'monthly': work, 'available': available}, ''
+                'end': end, 'monthly': work, 'available': available,
+                'confirmed': meta.get('occupancy_method') == 'confirmed_stays_v1'}, ''
     except (ValueError, KeyError, TypeError, OverflowError) as exc:
         return None, f'Report-period occupancy unavailable: {exc}. No months silently excluded.'
+
+
+def occupancy_label(summary):
+    # Arithmetic validation cannot verify the provenance of imported aggregates.
+    return ('Confirmed Bed Utilization' if summary and summary.get('confirmed')
+            else 'Recorded Bed Utilization')
+
+
+def occupancy_quality_note(summary):
+    if not summary:
+        return 'Utilization unavailable; review Data Quality for reporting issues.'
+    if not summary.get('confirmed'):
+        return ('Imported report: confirmed-stay methodology is unverified. '
+                'Review Data Quality before interpreting utilization as a lower bound.')
+    uncertain = sum(number(x) for x in summary['monthly'].get('uncertain_bed_days', []))
+    return (f'{uncertain:,.0f} potential bed-days with unresolved exits are excluded. '
+            'Missing admissions and excluded IDs may also understate utilization. See Data Quality.')
