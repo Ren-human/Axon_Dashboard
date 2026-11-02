@@ -1,0 +1,27 @@
+I started with some insight in the data: among the 200s records, less than 10 are missing, while some are blank, some are N/A, some are just a dash line. Many notes are identical (Phone disconnected / waitlisted / left AMA, etc.), and some are very similar (referred by someone). These notes are mixture of referral status, discharge events, aftercare engagement, incidents, mood and so on. Based on that, in task C we should focus more are schema, extraction, uncertainty handling and so on.
+
+C.1 
+
+I would implement a schema and hybrid NLP pipline, combining rule-based extraction with LLM-assisted classification. Human inspection can be a supplement.
+Schema are made based on the four category: 
+1. Engagement info: meeting attendance, missed sessions, aftercare participation
+2. Events: passed, incidents, violations, discharge
+3. Patient's condition: mood, cravings, risk indicator
+4. Extra info: event date, span, extraction method, human-review status, model version
+
+Extraction pipeline: 
+1.preprocessing: normalized, formatting the raw data, handle sensitive privacy information, etc.
+2.rule-based extraction: use regular expressions and clinical dictionaries for explicit patterns. Rules brings efficiency and explanability. Applied before LLM to possibly reduce cost.
+3.LLM extraction: Route complex or ambiguous narratives to an approved LLM using constrained JSON schemas and few-shot examples. Require supporting text spans and allow abstention when evidence is insufficient.
+3.validation: Apply schema validation, temporal and logical consistency checks, and evidence verification. Flag conflicting outputs for review.
+4.human review (optional) 
+5.storage to database
+
+C.2
+
+Create a representative dataset stratified by event category, note length, ambiguity, negation, and rare safety-related cases. (LLM labelling + human verification)  Include explicit negative examples and undocumented fields. Two trained annotators independently label an overlapping subset under clear annotation guidelines; adjudicate disagreements and measure inter-annotator agreement.
+
+Regarding to evaluation metrics, use field-level precision, recall and F1. Report per-category performance, since the dataset could be imbalanced. Evaluate evidence-span alignment, negation, temporal attribution, and structured-field correctness. Measure the proportion of predictions accepted automatically, referred for review, and their respective error rates.
+
+For a better controlling of privacy, safety-related sensitivity, ambiguous or insufficiently supported outputs, human inspections could be needed. Route cases above to reviewers, to confirm or correct predictions, with all changes retained in audit logs. Calibrate any confidence-based thresholds using validation data rather than relying on raw LLM confidence.
+A system that produces traceable, evidence-supported structured information, with measurable reliability and appropriate human oversight—not simply the highest extraction rate.
