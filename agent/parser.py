@@ -17,11 +17,11 @@ def rejected(message):
 
 def gate(question):
     if not isinstance(question, str) or not question.strip() or len(question) > 1200:
-        raise ValueError('请输入不超过 1200 字符的运营分析问题。')
+        raise ValueError('Enter an operational analytics question of up to 1,200 characters.')
     if re.search(r'(?i)\b(select|attach|copy|insert|delete|drop|pragma|install|execute|read_csv|read_text|tenant_id|api.key|staff_note|resident_id)\b|忽略.*指令|ignore.*instructions|[A-Za-z]:[\\/]|https?://|[\w.+-]+@[\w.-]+|\b\d{3}[- .]\d{3}[- .]\d{4}\b|居民姓名|手机号|身份证|出生日期|某位居民|individual resident|patient name', question):
-        raise ValueError('仅支持汇总运营问题；请移除个人信息、路径、SQL 或执行指令。')
+        raise ValueError('Only aggregate operational questions are supported. Remove personal information, paths, SQL or execution instructions.')
     if re.search(r'(?i)age group|年龄|gender|性别|survival|生存曲线|histogram|直方图|causal|因果|预测', question):
-        raise ValueError('当前汇总数据不支持该维度或分析；不能从汇总表重建居民明细。')
+        raise ValueError('The current aggregates do not support that dimension or analysis. Resident-level records cannot be reconstructed from summary tables.')
 
 
 def horizons(text):
@@ -42,14 +42,14 @@ def clarification(metric, view, message, base=None):
 def rule_parse(question, pending=None, previous=None):
     text = question.strip().lower()
     if re.search(r'\bsober\b|清醒|戒酒|successful|成功率|\bactive\b|活跃', text):
-        return clarification('undefined', 'definition', '请明确该术语对应的记录类别、周期及分母。engaged_in_recovery 不能证明已验证清醒；请用明确的指标重新描述问题。')
+        return clarification('undefined', 'definition', 'Specify the recorded category, follow-up period and denominator. engaged_in_recovery does not prove verified sobriety; restate the request using a defined metric.')
     if pending:
         hs = horizons(text)
         if pending['metric'] == 'outcomes':
             if not hs:
-                return clarification('outcomes', pending['view'], '请选择 6 月或 12 月随访，并明确使用全部已到期居民作为分母。', pending.get('base'))
+                return clarification('outcomes', pending['view'], 'Choose 6-month or 12-month follow-up and confirm that all residents due are the denominator.', pending.get('base'))
             if pending['view'] == 'reported_relapse_share' and not re.search(r'全部|所有|到期|all|due', text):
-                return clarification('outcomes', pending['view'], '是否按全部已到期居民作为分母？请明确“全部到期居民”。', pending.get('base'))
+                return clarification('outcomes', pending['view'], 'Should all residents due be the denominator? Please explicitly confirm "all residents due".', pending.get('base'))
             spec = copy.deepcopy(pending.get('base')) or make_spec('outcomes', 'value', pending['view'])
             spec['filters'] = [dict(field='horizon_months', op='eq' if len(hs) == 1 else 'in', value=hs[0] if len(hs) == 1 else hs)]
             if len(hs) > 1 and spec['output']['type'] == 'scalar':
@@ -58,7 +58,7 @@ def rule_parse(question, pending=None, previous=None):
         if pending['metric'] == 'los':
             cohort = next((c for c in ('ended_stays', 'ongoing_elapsed_stays', 'program_completed_subset') if c in text), None)
             if not cohort:
-                return clarification('los', 'cohort_statistics', '请选择 ended_stays、ongoing_elapsed_stays 或 program_completed_subset。')
+                return clarification('los', 'cohort_statistics', 'Choose ended_stays, ongoing_elapsed_stays or program_completed_subset.')
             return dict(action='spec', spec=make_spec('los', 'value', filters=[dict(field='cohort', op='eq', value=cohort)]))
     topics = [m for m, pattern in TOPICS.items() if re.search(pattern, text)]
     if previous and previous.get('intent') == 'chart' and re.search(r'改|换|只保留|加入|change|switch|only|add', text):
@@ -76,14 +76,14 @@ def rule_parse(question, pending=None, previous=None):
         return dict(action='spec', spec=validate(spec))
     if re.search(r'报告|report', text) and re.search(r'生成|整理|专题|摘要|create|generate|summary', text):
         if re.search(r'\d{4}[-年]\d{1,2}|季度|quarter|今年|去年|本月|上月|this year|last year', text):
-            return rejected('当前报告生成器使用整份已选报告。月份切片请先生成独立图表；报告指定月份范围将在后续版本支持。')
+            return rejected('The report generator uses the entire selected report. For a month range, generate a standalone chart; month-specific reports are not yet available.')
         return dict(action='spec', spec=validate(dict(schema_version='2.0', intent='report',
                      title='Operational analysis report', sections=topics or ['occupancy', 'outcomes'])))
     if len(topics) != 1:
-        return rejected('请指定漏斗、入住率、随访、LOS 或数据质量；可用“生成入住率与随访专题报告”组合多个主题。')
+        return rejected('Specify funnel, occupancy, follow-up, LOS or data quality. Use "Generate an occupancy and follow-up report" to combine topics.')
     metric = topics[0]
     if re.search(r'今年|去年|本月|上月|今天|this year|last year|last month|today', text):
-        return rejected('请明确报告年份或 YYYY-MM 范围；报告截止日期不会随今天自动变化。')
+        return rejected('Specify a report year or YYYY-MM range. The report cutoff does not automatically change with today\'s date.')
     if re.search(r'哪里|在哪|打开|where|open|navigate', text):
         return dict(action='spec', spec=dict(schema_version='2.0', intent='navigate', metric=metric))
     is_chart = bool(re.search(r'画|图|plot|chart|graph|趋势|trend|比较|compare', text))
@@ -95,7 +95,7 @@ def rule_parse(question, pending=None, previous=None):
         hs = horizons(text)
         spec = make_spec(metric, intent, view)
         if not hs or (view == 'reported_relapse_share' and not re.search(r'全部|所有|到期|all|due', text)):
-            return clarification(metric, view, '请选择 6 月或 12 月随访；复发比例是否以全部已到期居民为分母？', spec)
+            return clarification(metric, view, 'Choose 6-month or 12-month follow-up. Should the reported relapse proportion use all residents due as its denominator?', spec)
         spec['filters'] = [dict(field='horizon_months', op='eq' if len(hs) == 1 else 'in', value=hs[0] if len(hs) == 1 else hs)]
         if len(hs) > 1 and intent == 'value':
             spec['output']['type'] = 'table'
@@ -106,13 +106,13 @@ def rule_parse(question, pending=None, previous=None):
         chinese_months = re.findall(r'(\d{4})年\s*(\d{1,2})月', text)
         months += [f'{int(year):04d}-{int(month):02d}' for year, month in chinese_months]
         if re.search(r'\d{4}-\d{2}-\d{2}|季度|quarter|每天|daily', text):
-            return rejected('当前原型支持完整月份范围，不支持日切片或季度重分组。请用 YYYY-MM 至 YYYY-MM。')
+            return rejected('This prototype supports complete-month ranges, not day-level slices or quarterly regrouping. Use YYYY-MM through YYYY-MM.')
         if months:
             spec['filters'] = [dict(field='month', op='between', value=[min(months), max(months)])]
         elif re.search(r'(?<!\d)\d{1,2}\s*(?:至|到|–|-)\s*\d{1,2}\s*月', text):
-            return rejected('请明确年份，使用 YYYY-MM 至 YYYY-MM，避免把当前年份当作报告年份。')
+            return rejected('Specify the year using YYYY-MM through YYYY-MM so the current year is not mistaken for the report year.')
         elif re.search(r'(?<!\d)\d{1,2}月|january|february|march|april|may|june|july|august|september|october|november|december', text):
-            return rejected('请用明确的 YYYY-MM 或 YYYY-MM 至 YYYY-MM。')
+            return rejected('Use an explicit YYYY-MM or YYYY-MM through YYYY-MM range.')
     elif metric == 'funnel':
         stage = next((stage for stage, pattern in [('admission', r'admission|入院'), ('referral', r'referral|转介'),
                       ('intake', r'intake'), ('discharge', r'discharge|出院人数')] if re.search(pattern, text)), None)
@@ -122,7 +122,7 @@ def rule_parse(question, pending=None, previous=None):
     elif metric == 'los' and not is_chart:
         cohort = next((c for c in ('ended_stays', 'ongoing_elapsed_stays', 'program_completed_subset') if c in text), None)
         if not cohort:
-            return clarification('los', 'cohort_statistics', '请选择 ended_stays、ongoing_elapsed_stays 或 program_completed_subset；不能混合计算中位数。')
+            return clarification('los', 'cohort_statistics', 'Choose ended_stays, ongoing_elapsed_stays or program_completed_subset. Cohort medians cannot be pooled.')
         spec['filters'] = [dict(field='cohort', op='eq', value=cohort)]
     elif metric == 'quality' and not is_chart:
         spec['output'] = {'type': 'scalar'}

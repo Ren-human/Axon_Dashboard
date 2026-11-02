@@ -9,8 +9,16 @@ from db import load, TABLES
 import report_versions as versions
 
 ROOT = Path(__file__).resolve().parent
-st.set_page_config(page_title='Harbourview | Learn', page_icon='🏠', layout='wide')
-st.title('Harbourview | Operational dashboard')
+st.set_page_config(page_title='Harbourview | Dashboard', page_icon='🏠', layout='wide')
+st.markdown('''<style>
+.stMainBlockContainer{padding-top:1.4rem;padding-bottom:1.5rem;}
+@media(max-width:1000px){
+ .st-key-overview_layout > [data-testid="stLayoutWrapper"] > [data-testid="stHorizontalBlock"]{flex-direction:column;}
+ .st-key-overview_layout > [data-testid="stLayoutWrapper"] > [data-testid="stHorizontalBlock"] > [data-testid="stColumn"]{width:100%;flex:1 1 100%;}
+ .st-key-overview_layout > [data-testid="stLayoutWrapper"] > [data-testid="stHorizontalBlock"] > [data-testid="stColumn"]:last-child{order:-1;}
+}
+</style>''',unsafe_allow_html=True)
+st.markdown('## Harbourview · Operational dashboard')
 
 active_db, manifest, config_problem = None, None, None
 try:
@@ -44,11 +52,9 @@ with st.sidebar:
     path_text = st.text_input('DuckDB file', key='report_db', on_change=remember_database)
     if st.button('Reload database'):
         st.cache_data.clear()
-    if manifest:
-        st.caption(f'Active version for resident entry: {manifest["version"]}')
-    elif config_problem:
+    if config_problem:
         st.caption('Resident entry is not configured or the configuration is invalid. Analysis pages remain available.')
-    else:
+    elif not manifest:
         st.caption('Resident entry has not been initialized. Analysis pages remain available.')
 
 path = Path(path_text).expanduser()
@@ -76,20 +82,18 @@ elif len(meta) > 1:
             problems[name] = 'Multiple metadata rows: single-report database required.'
 if problems:
     st.warning('Some aggregate tables could not be read. Affected pages show details; other pages remain usable.')
-st.caption(f'Currently viewing report: {path}')
 if manifest and path.resolve() != active_db.resolve():
-    st.info('You are viewing another report. Adding a resident updates only the configured data source and its active report version; it does not modify the historical report currently being viewed.')
+    st.info('You are viewing a different report. Adding a resident updates the configured data source; this report remains unchanged.')
     if st.button('Open the active report for resident entry'):
         st.session_state['switch_to_active'] = True
         st.rerun()
-elif manifest:
-    st.caption(f'Active report version: {manifest["version"]}')
 st.session_state['tables'] = tables
 st.session_state['problems'] = problems
 st.session_state['db_path'] = str(path)
 
 page = st.navigation([
     st.Page('pages/overview.py', title='Overview', default=True),
+    st.Page('pages/analyst.py', title='AI Analyst', url_path='analyst'),
     st.Page('pages/funnel.py', title='Referral funnel', url_path='funnel'),
     st.Page('pages/occupancy.py', title='Occupancy', url_path='occupancy'),
     st.Page('pages/los.py', title='Length of stay', url_path='los'),

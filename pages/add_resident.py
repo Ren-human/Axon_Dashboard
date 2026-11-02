@@ -19,15 +19,13 @@ except (OSError, ValueError, KeyError) as exc:
     st.stop()
 
 raw_path, target_db = versions.active_paths(cfg, manifest)
-st.info(f'Recording target: {raw_path}\n\nActive version: {manifest["version"]}; report cutoff: {manifest["report_as_of"]}')
-st.caption(f'Currently viewing report: {st.session_state.get("db_path", "None selected")}')
+st.info(f'Configured data source: {raw_path.name} · report cutoff: {manifest["report_as_of"]}')
 st.json(cfg['report'], expanded=False)
 st.caption('The as_of value is the source snapshot cutoff. The effective report cutoff is the earlier of that date and fiscal year-end. Adding a record does not change these parameters.')
 if st.session_state.get('publish_success'):
     result = st.session_state['publish_success']
     receipt = result['receipt']
-    st.success(f'Resident {receipt["resident_id"]} was submitted and calculated successfully. Record version: {receipt["version"]};'
-               f'Active version: {result["active"]["version"]}; report cutoff: {receipt["report_as_of"]}.')
+    st.success(f'Resident {receipt["resident_id"]} was submitted and calculated successfully. The updated report is active; report cutoff: {receipt["report_as_of"]}.')
 if st.session_state.get('publish_error'):
     st.error(st.session_state['publish_error'])
 

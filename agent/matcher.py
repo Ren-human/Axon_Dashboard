@@ -9,7 +9,7 @@ def match(spec):
         return None
     result = dict(page=METRICS[metric]['page'], label=METRICS[metric]['label'])
     if spec['intent'] == 'navigate':
-        return dict(**result, message='打开对应页面查看现有图表与指标说明。')
+        return dict(**result, message='Open the corresponding page to view its charts and metric definitions.')
     if spec['intent'] != 'chart' or spec['output'].get('force_new'):
         return None
     chart, view = spec['output']['chart_type'], spec['view']
@@ -17,20 +17,20 @@ def match(spec):
     message = None
     if metric == 'occupancy' and view == 'bounds' and chart == 'line':
         months = filters.get('month')
-        message = '使用 Displayed month window 滑块' + (f'选择 {months[0]} 至 {months[1]}。' if months else '选择月份范围。')
+        message = 'Use the Displayed month window slider ' + (f'to select {months[0]} through {months[1]}.' if months else 'to select a month range.')
     elif metric == 'outcomes' and view == 'breakdown' and chart == 'bar':
         horizon = filters.get('horizon_months')
         if isinstance(horizon, list) and len(horizon) == 1:
             horizon = horizon[0]
         if horizon in (6, 12):
             result = dict(page='pages/overview.py', label='Overview follow-up composition')
-            message = f'在 Overview 找到 {horizon}-month follow-up 图，查看完整七类构成。详情页可选择 {horizon} Months 查看三类柱及其他类别说明。'
+            message = f'Select {horizon} Months under Follow-up period on Overview to see all seven categories. On the detail page, select {horizon} Months to see the three main bars and notes on the remaining categories.'
     elif metric == 'funnel' and view == 'stages' and chart == 'funnel':
-        message = '查看完整严格漏斗；阶段筛选仅影响展示，不改变既有转化分母。'
+        message = 'View the complete strict funnel. Stage filters affect the display only and preserve the original conversion denominators.'
     elif metric == 'los' and chart == 'grouped_bar':
-        message = '通过 LOS cohorts 选择 cohort，比较各自 median/P90；不要合并 cohort。'
+        message = 'Use LOS cohorts to select cohorts and compare their median/P90 values separately. Do not pool the cohorts.'
     elif metric == 'quality' and chart == 'bar' and not any(f['field'] == 'rule' for f in spec['filters']):
-        message = '使用 Severity 筛选' + (f'选择 {filters["severity"]}；' if 'severity' in filters else '；') + '图中计数是规则标记数，并非独立居民数。'
+        message = 'Use the Severity filter' + (f' to select {filters["severity"]}. ' if 'severity' in filters else '. ') + 'Counts represent rule flags, not distinct residents.'
     if message:
         return dict(**result, message=message)
     return None
